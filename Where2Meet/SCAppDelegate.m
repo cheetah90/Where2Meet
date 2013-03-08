@@ -87,7 +87,7 @@ NSString *const SCSessionStateChangedNotification =
     UIViewController* topViewController= [self.navController topViewController];
     UIViewController* presentedViewController= [self.navController presentedViewController];
     
-    if (![presentedViewController isKindOfClass: [SCLoginViewController alloc] ]) {
+    if (![presentedViewController isKindOfClass: [SCLoginViewController class]]) {
         //Allocate a LoginViewController
         SCLoginViewController* loginViewController= [[SCLoginViewController alloc] initWithNibName: @"SCLoginViewController" bundle:nil];
         

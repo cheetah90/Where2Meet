@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3C396A16E996B6009B5D59 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C396916E996B6009B5D59 /* Meeting.m */; };
+		CA3C396D16E996C8009B5D59 /* ServiceHub.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C396C16E996C7009B5D59 /* ServiceHub.m */; };
+		CA3C399416E99956009B5D59 /* DCArrayMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397016E99955009B5D59 /* DCArrayMapping.m */; };
+		CA3C399516E99956009B5D59 /* DCAttributeSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397216E99955009B5D59 /* DCAttributeSetter.m */; };
+		CA3C399616E99956009B5D59 /* DCCustomInitialize.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397416E99955009B5D59 /* DCCustomInitialize.m */; };
+		CA3C399716E99956009B5D59 /* DCCustomParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397616E99955009B5D59 /* DCCustomParser.m */; };
+		CA3C399816E99956009B5D59 /* DCDictionaryRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397816E99955009B5D59 /* DCDictionaryRearranger.m */; };
+		CA3C399916E99956009B5D59 /* DCDynamicAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397A16E99955009B5D59 /* DCDynamicAttribute.m */; };
+		CA3C399A16E99956009B5D59 /* DCGenericConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397C16E99955009B5D59 /* DCGenericConverter.m */; };
+		CA3C399B16E99956009B5D59 /* DCKeyValueObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C397E16E99955009B5D59 /* DCKeyValueObjectMapping.m */; };
+		CA3C399C16E99956009B5D59 /* DCNSArrayConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398016E99955009B5D59 /* DCNSArrayConverter.m */; };
+		CA3C399D16E99956009B5D59 /* DCNSDateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398216E99955009B5D59 /* DCNSDateConverter.m */; };
+		CA3C399E16E99956009B5D59 /* DCNSSetConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398416E99955009B5D59 /* DCNSSetConverter.m */; };
+		CA3C399F16E99956009B5D59 /* DCNSURLConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398616E99955009B5D59 /* DCNSURLConverter.m */; };
+		CA3C39A016E99956009B5D59 /* DCObjectMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398816E99955009B5D59 /* DCObjectMapping.m */; };
+		CA3C39A116E99956009B5D59 /* DCParserConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398A16E99956009B5D59 /* DCParserConfiguration.m */; };
+		CA3C39A216E99956009B5D59 /* DCPropertyAggregator.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398C16E99956009B5D59 /* DCPropertyAggregator.m */; };
+		CA3C39A316E99956009B5D59 /* DCPropertyFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C398E16E99956009B5D59 /* DCPropertyFinder.m */; };
+		CA3C39A416E99956009B5D59 /* DCReferenceKeyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C399016E99956009B5D59 /* DCReferenceKeyParser.m */; };
+		CA3C39A516E99956009B5D59 /* DCSimpleConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C399216E99956009B5D59 /* DCSimpleConverter.m */; };
+		CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */; };
 		E32BA89D16E5556F00E5DB20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA89C16E5556F00E5DB20 /* UIKit.framework */; };
 		E32BA89F16E5556F00E5DB20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA89E16E5556F00E5DB20 /* Foundation.framework */; };
 		E32BA8A116E5556F00E5DB20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8A016E5556F00E5DB20 /* CoreGraphics.framework */; };
@@ -28,6 +49,49 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA3C396816E996B6009B5D59 /* Meeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meeting.h; sourceTree = "<group>"; };
+		CA3C396916E996B6009B5D59 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meeting.m; sourceTree = "<group>"; };
+		CA3C396B16E996C7009B5D59 /* ServiceHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceHub.h; sourceTree = "<group>"; };
+		CA3C396C16E996C7009B5D59 /* ServiceHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceHub.m; sourceTree = "<group>"; };
+		CA3C396F16E99955009B5D59 /* DCArrayMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCArrayMapping.h; path = Where2Meet/DCArrayMapping.h; sourceTree = "<group>"; };
+		CA3C397016E99955009B5D59 /* DCArrayMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCArrayMapping.m; path = Where2Meet/DCArrayMapping.m; sourceTree = "<group>"; };
+		CA3C397116E99955009B5D59 /* DCAttributeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCAttributeSetter.h; path = Where2Meet/DCAttributeSetter.h; sourceTree = "<group>"; };
+		CA3C397216E99955009B5D59 /* DCAttributeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCAttributeSetter.m; path = Where2Meet/DCAttributeSetter.m; sourceTree = "<group>"; };
+		CA3C397316E99955009B5D59 /* DCCustomInitialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCustomInitialize.h; path = Where2Meet/DCCustomInitialize.h; sourceTree = "<group>"; };
+		CA3C397416E99955009B5D59 /* DCCustomInitialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCustomInitialize.m; path = Where2Meet/DCCustomInitialize.m; sourceTree = "<group>"; };
+		CA3C397516E99955009B5D59 /* DCCustomParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCCustomParser.h; path = Where2Meet/DCCustomParser.h; sourceTree = "<group>"; };
+		CA3C397616E99955009B5D59 /* DCCustomParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCCustomParser.m; path = Where2Meet/DCCustomParser.m; sourceTree = "<group>"; };
+		CA3C397716E99955009B5D59 /* DCDictionaryRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDictionaryRearranger.h; path = Where2Meet/DCDictionaryRearranger.h; sourceTree = "<group>"; };
+		CA3C397816E99955009B5D59 /* DCDictionaryRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDictionaryRearranger.m; path = Where2Meet/DCDictionaryRearranger.m; sourceTree = "<group>"; };
+		CA3C397916E99955009B5D59 /* DCDynamicAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCDynamicAttribute.h; path = Where2Meet/DCDynamicAttribute.h; sourceTree = "<group>"; };
+		CA3C397A16E99955009B5D59 /* DCDynamicAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCDynamicAttribute.m; path = Where2Meet/DCDynamicAttribute.m; sourceTree = "<group>"; };
+		CA3C397B16E99955009B5D59 /* DCGenericConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCGenericConverter.h; path = Where2Meet/DCGenericConverter.h; sourceTree = "<group>"; };
+		CA3C397C16E99955009B5D59 /* DCGenericConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCGenericConverter.m; path = Where2Meet/DCGenericConverter.m; sourceTree = "<group>"; };
+		CA3C397D16E99955009B5D59 /* DCKeyValueObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCKeyValueObjectMapping.h; path = Where2Meet/DCKeyValueObjectMapping.h; sourceTree = "<group>"; };
+		CA3C397E16E99955009B5D59 /* DCKeyValueObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCKeyValueObjectMapping.m; path = Where2Meet/DCKeyValueObjectMapping.m; sourceTree = "<group>"; };
+		CA3C397F16E99955009B5D59 /* DCNSArrayConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCNSArrayConverter.h; path = Where2Meet/DCNSArrayConverter.h; sourceTree = "<group>"; };
+		CA3C398016E99955009B5D59 /* DCNSArrayConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCNSArrayConverter.m; path = Where2Meet/DCNSArrayConverter.m; sourceTree = "<group>"; };
+		CA3C398116E99955009B5D59 /* DCNSDateConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCNSDateConverter.h; path = Where2Meet/DCNSDateConverter.h; sourceTree = "<group>"; };
+		CA3C398216E99955009B5D59 /* DCNSDateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCNSDateConverter.m; path = Where2Meet/DCNSDateConverter.m; sourceTree = "<group>"; };
+		CA3C398316E99955009B5D59 /* DCNSSetConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCNSSetConverter.h; path = Where2Meet/DCNSSetConverter.h; sourceTree = "<group>"; };
+		CA3C398416E99955009B5D59 /* DCNSSetConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCNSSetConverter.m; path = Where2Meet/DCNSSetConverter.m; sourceTree = "<group>"; };
+		CA3C398516E99955009B5D59 /* DCNSURLConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCNSURLConverter.h; path = Where2Meet/DCNSURLConverter.h; sourceTree = "<group>"; };
+		CA3C398616E99955009B5D59 /* DCNSURLConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCNSURLConverter.m; path = Where2Meet/DCNSURLConverter.m; sourceTree = "<group>"; };
+		CA3C398716E99955009B5D59 /* DCObjectMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCObjectMapping.h; path = Where2Meet/DCObjectMapping.h; sourceTree = "<group>"; };
+		CA3C398816E99955009B5D59 /* DCObjectMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCObjectMapping.m; path = Where2Meet/DCObjectMapping.m; sourceTree = "<group>"; };
+		CA3C398916E99955009B5D59 /* DCParserConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCParserConfiguration.h; path = Where2Meet/DCParserConfiguration.h; sourceTree = "<group>"; };
+		CA3C398A16E99956009B5D59 /* DCParserConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCParserConfiguration.m; path = Where2Meet/DCParserConfiguration.m; sourceTree = "<group>"; };
+		CA3C398B16E99956009B5D59 /* DCPropertyAggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCPropertyAggregator.h; path = Where2Meet/DCPropertyAggregator.h; sourceTree = "<group>"; };
+		CA3C398C16E99956009B5D59 /* DCPropertyAggregator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCPropertyAggregator.m; path = Where2Meet/DCPropertyAggregator.m; sourceTree = "<group>"; };
+		CA3C398D16E99956009B5D59 /* DCPropertyFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCPropertyFinder.h; path = Where2Meet/DCPropertyFinder.h; sourceTree = "<group>"; };
+		CA3C398E16E99956009B5D59 /* DCPropertyFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCPropertyFinder.m; path = Where2Meet/DCPropertyFinder.m; sourceTree = "<group>"; };
+		CA3C398F16E99956009B5D59 /* DCReferenceKeyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCReferenceKeyParser.h; path = Where2Meet/DCReferenceKeyParser.h; sourceTree = "<group>"; };
+		CA3C399016E99956009B5D59 /* DCReferenceKeyParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCReferenceKeyParser.m; path = Where2Meet/DCReferenceKeyParser.m; sourceTree = "<group>"; };
+		CA3C399116E99956009B5D59 /* DCSimpleConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCSimpleConverter.h; path = Where2Meet/DCSimpleConverter.h; sourceTree = "<group>"; };
+		CA3C399216E99956009B5D59 /* DCSimpleConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DCSimpleConverter.m; path = Where2Meet/DCSimpleConverter.m; sourceTree = "<group>"; };
+		CA3C399316E99956009B5D59 /* DCValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCValueConverter.h; path = Where2Meet/DCValueConverter.h; sourceTree = "<group>"; };
+		CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KeyValueObjectMapping-Info.plist"; path = "Where2Meet/KeyValueObjectMapping-Info.plist"; sourceTree = "<group>"; };
+		CA3C39A716E99975009B5D59 /* KeyValueObjectMapping-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KeyValueObjectMapping-Prefix.pch"; path = "Where2Meet/KeyValueObjectMapping-Prefix.pch"; sourceTree = "<group>"; };
 		E32BA89916E5556F00E5DB20 /* Where2Meet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where2Meet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32BA89C16E5556F00E5DB20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E32BA89E16E5556F00E5DB20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,9 +136,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA3C392B16E99454009B5D59 /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				CA3C396E16E9993A009B5D59 /* KeyValueObjectMapping */,
+			);
+			name = 3rdParty;
+			sourceTree = "<group>";
+		};
+		CA3C396716E996A7009B5D59 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA3C396B16E996C7009B5D59 /* ServiceHub.h */,
+				CA3C396C16E996C7009B5D59 /* ServiceHub.m */,
+				CA3C396816E996B6009B5D59 /* Meeting.h */,
+				CA3C396916E996B6009B5D59 /* Meeting.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		CA3C396E16E9993A009B5D59 /* KeyValueObjectMapping */ = {
+			isa = PBXGroup;
+			children = (
+				CA3C396F16E99955009B5D59 /* DCArrayMapping.h */,
+				CA3C397016E99955009B5D59 /* DCArrayMapping.m */,
+				CA3C397116E99955009B5D59 /* DCAttributeSetter.h */,
+				CA3C397216E99955009B5D59 /* DCAttributeSetter.m */,
+				CA3C397316E99955009B5D59 /* DCCustomInitialize.h */,
+				CA3C397416E99955009B5D59 /* DCCustomInitialize.m */,
+				CA3C397516E99955009B5D59 /* DCCustomParser.h */,
+				CA3C397616E99955009B5D59 /* DCCustomParser.m */,
+				CA3C397716E99955009B5D59 /* DCDictionaryRearranger.h */,
+				CA3C397816E99955009B5D59 /* DCDictionaryRearranger.m */,
+				CA3C397916E99955009B5D59 /* DCDynamicAttribute.h */,
+				CA3C397A16E99955009B5D59 /* DCDynamicAttribute.m */,
+				CA3C397B16E99955009B5D59 /* DCGenericConverter.h */,
+				CA3C397C16E99955009B5D59 /* DCGenericConverter.m */,
+				CA3C397D16E99955009B5D59 /* DCKeyValueObjectMapping.h */,
+				CA3C397E16E99955009B5D59 /* DCKeyValueObjectMapping.m */,
+				CA3C397F16E99955009B5D59 /* DCNSArrayConverter.h */,
+				CA3C398016E99955009B5D59 /* DCNSArrayConverter.m */,
+				CA3C398116E99955009B5D59 /* DCNSDateConverter.h */,
+				CA3C398216E99955009B5D59 /* DCNSDateConverter.m */,
+				CA3C398316E99955009B5D59 /* DCNSSetConverter.h */,
+				CA3C398416E99955009B5D59 /* DCNSSetConverter.m */,
+				CA3C398516E99955009B5D59 /* DCNSURLConverter.h */,
+				CA3C398616E99955009B5D59 /* DCNSURLConverter.m */,
+				CA3C398716E99955009B5D59 /* DCObjectMapping.h */,
+				CA3C398816E99955009B5D59 /* DCObjectMapping.m */,
+				CA3C398916E99955009B5D59 /* DCParserConfiguration.h */,
+				CA3C398A16E99956009B5D59 /* DCParserConfiguration.m */,
+				CA3C398B16E99956009B5D59 /* DCPropertyAggregator.h */,
+				CA3C398C16E99956009B5D59 /* DCPropertyAggregator.m */,
+				CA3C398D16E99956009B5D59 /* DCPropertyFinder.h */,
+				CA3C398E16E99956009B5D59 /* DCPropertyFinder.m */,
+				CA3C398F16E99956009B5D59 /* DCReferenceKeyParser.h */,
+				CA3C399016E99956009B5D59 /* DCReferenceKeyParser.m */,
+				CA3C399116E99956009B5D59 /* DCSimpleConverter.h */,
+				CA3C399216E99956009B5D59 /* DCSimpleConverter.m */,
+				CA3C399316E99956009B5D59 /* DCValueConverter.h */,
+				CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */,
+				CA3C39A716E99975009B5D59 /* KeyValueObjectMapping-Prefix.pch */,
+			);
+			name = KeyValueObjectMapping;
+			sourceTree = "<group>";
+		};
 		E32BA89016E5556F00E5DB20 = {
 			isa = PBXGroup;
 			children = (
+				CA3C392B16E99454009B5D59 /* 3rdParty */,
 				E32BA8A216E5556F00E5DB20 /* Where2Meet */,
 				E32BA89B16E5556F00E5DB20 /* Frameworks */,
 				E32BA89A16E5556F00E5DB20 /* Products */,
@@ -107,6 +237,7 @@
 		E32BA8A216E5556F00E5DB20 /* Where2Meet */ = {
 			isa = PBXGroup;
 			children = (
+				CA3C396716E996A7009B5D59 /* Services */,
 				E32BA8AB16E5556F00E5DB20 /* SCAppDelegate.h */,
 				E32BA8AC16E5556F00E5DB20 /* SCAppDelegate.m */,
 				E32BA8C916E5586200E5DB20 /* SCLoginViewController.h */,
@@ -193,6 +324,7 @@
 				E32BA8B916E5556F00E5DB20 /* SCViewController.xib in Resources */,
 				E32BA8C216E555F500E5DB20 /* FacebookSDKResources.bundle in Resources */,
 				E32BA8CD16E5586200E5DB20 /* SCLoginViewController.xib in Resources */,
+				CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +339,26 @@
 				E32BA8AD16E5556F00E5DB20 /* SCAppDelegate.m in Sources */,
 				E32BA8B616E5556F00E5DB20 /* SCViewController.m in Sources */,
 				E32BA8CC16E5586200E5DB20 /* SCLoginViewController.m in Sources */,
+				CA3C396A16E996B6009B5D59 /* Meeting.m in Sources */,
+				CA3C396D16E996C8009B5D59 /* ServiceHub.m in Sources */,
+				CA3C399416E99956009B5D59 /* DCArrayMapping.m in Sources */,
+				CA3C399516E99956009B5D59 /* DCAttributeSetter.m in Sources */,
+				CA3C399616E99956009B5D59 /* DCCustomInitialize.m in Sources */,
+				CA3C399716E99956009B5D59 /* DCCustomParser.m in Sources */,
+				CA3C399816E99956009B5D59 /* DCDictionaryRearranger.m in Sources */,
+				CA3C399916E99956009B5D59 /* DCDynamicAttribute.m in Sources */,
+				CA3C399A16E99956009B5D59 /* DCGenericConverter.m in Sources */,
+				CA3C399B16E99956009B5D59 /* DCKeyValueObjectMapping.m in Sources */,
+				CA3C399C16E99956009B5D59 /* DCNSArrayConverter.m in Sources */,
+				CA3C399D16E99956009B5D59 /* DCNSDateConverter.m in Sources */,
+				CA3C399E16E99956009B5D59 /* DCNSSetConverter.m in Sources */,
+				CA3C399F16E99956009B5D59 /* DCNSURLConverter.m in Sources */,
+				CA3C39A016E99956009B5D59 /* DCObjectMapping.m in Sources */,
+				CA3C39A116E99956009B5D59 /* DCParserConfiguration.m in Sources */,
+				CA3C39A216E99956009B5D59 /* DCPropertyAggregator.m in Sources */,
+				CA3C39A316E99956009B5D59 /* DCPropertyFinder.m in Sources */,
+				CA3C39A416E99956009B5D59 /* DCReferenceKeyParser.m in Sources */,
+				CA3C39A516E99956009B5D59 /* DCSimpleConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +497,7 @@
 				E32BA8BE16E5556F00E5DB20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
