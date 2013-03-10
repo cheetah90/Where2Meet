@@ -42,14 +42,12 @@
 		E32BA8B116E5556F00E5DB20 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32BA8B016E5556F00E5DB20 /* Default@2x.png */; };
 		E32BA8B316E5556F00E5DB20 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32BA8B216E5556F00E5DB20 /* Default-568h@2x.png */; };
 		E32BA8B616E5556F00E5DB20 /* SCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32BA8B516E5556F00E5DB20 /* SCViewController.m */; };
-		E32BA8B916E5556F00E5DB20 /* SCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32BA8B716E5556F00E5DB20 /* SCViewController.xib */; };
 		E32BA8C016E555D100E5DB20 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8BF16E555D100E5DB20 /* FacebookSDK.framework */; };
 		E32BA8C216E555F500E5DB20 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E32BA8C116E555F500E5DB20 /* FacebookSDKResources.bundle */; };
 		E32BA8C416E5564A00E5DB20 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C316E5564A00E5DB20 /* AdSupport.framework */; };
 		E32BA8C616E5565100E5DB20 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C516E5565100E5DB20 /* Social.framework */; };
 		E32BA8C816E5565D00E5DB20 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C716E5565D00E5DB20 /* Accounts.framework */; };
 		E32BA8CC16E5586200E5DB20 /* SCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */; };
-		E32BA8CD16E5586200E5DB20 /* SCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32BA8CB16E5586200E5DB20 /* SCLoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,7 +116,6 @@
 		E32BA8B216E5556F00E5DB20 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E32BA8B416E5556F00E5DB20 /* SCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCViewController.h; sourceTree = "<group>"; };
 		E32BA8B516E5556F00E5DB20 /* SCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCViewController.m; sourceTree = "<group>"; };
-		E32BA8B816E5556F00E5DB20 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SCViewController.xib; sourceTree = "<group>"; };
 		E32BA8BF16E555D100E5DB20 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		E32BA8C116E555F500E5DB20 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		E32BA8C316E5564A00E5DB20 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -126,7 +123,6 @@
 		E32BA8C716E5565D00E5DB20 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E32BA8C916E5586200E5DB20 /* SCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoginViewController.h; sourceTree = "<group>"; };
 		E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoginViewController.m; sourceTree = "<group>"; };
-		E32BA8CB16E5586200E5DB20 /* SCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCLoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,14 +251,12 @@
 				CAC51C3C16ED1753000F8FBE /* SCLaunchControllerViewController.m */,
 				E32BA8C916E5586200E5DB20 /* SCLoginViewController.h */,
 				E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */,
-				E32BA8CB16E5586200E5DB20 /* SCLoginViewController.xib */,
 				CAC51C4116ED2FA1000F8FBE /* SCMeetingCell.h */,
 				CAC51C4216ED2FA2000F8FBE /* SCMeetingCell.m */,
 				CAC51C3E16ED287D000F8FBE /* SCMyMeetingsViewController.h */,
 				CAC51C3F16ED287D000F8FBE /* SCMyMeetingsViewController.m */,
 				E32BA8B416E5556F00E5DB20 /* SCViewController.h */,
 				E32BA8B516E5556F00E5DB20 /* SCViewController.m */,
-				E32BA8B716E5556F00E5DB20 /* SCViewController.xib */,
 				CA3C396716E996A7009B5D59 /* Services */,
 				E32BA8A316E5556F00E5DB20 /* Supporting Files */,
 			);
@@ -339,9 +333,7 @@
 				E32BA8AF16E5556F00E5DB20 /* Default.png in Resources */,
 				E32BA8B116E5556F00E5DB20 /* Default@2x.png in Resources */,
 				E32BA8B316E5556F00E5DB20 /* Default-568h@2x.png in Resources */,
-				E32BA8B916E5556F00E5DB20 /* SCViewController.xib in Resources */,
 				E32BA8C216E555F500E5DB20 /* FacebookSDKResources.bundle in Resources */,
-				E32BA8CD16E5586200E5DB20 /* SCLoginViewController.xib in Resources */,
 				CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */,
 				CAC51C3A16ED12FB000F8FBE /* MainStoryboard.storyboard in Resources */,
 			);
@@ -393,14 +385,6 @@
 				E32BA8A616E5556F00E5DB20 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E32BA8B716E5556F00E5DB20 /* SCViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E32BA8B816E5556F00E5DB20 /* en */,
-			);
-			name = SCViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
