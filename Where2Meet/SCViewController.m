@@ -9,6 +9,7 @@
 #import "SCViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "SCAppDelegate.h"
+#import "ServiceHub.h"
 
 @interface SCViewController ()
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
@@ -38,6 +39,17 @@
                  self.userNameLabel.text = user.name;
                  userid = user.id;
                  self.userProfileImage=userid;
+                 
+                 // Store the facebook userid for future use.
+                 NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
+                 [localStore setObject:userid forKey:@"user_id"];
+                 [localStore synchronize];
+                 
+                 // The push notification id can change at any time, so
+                 // always register the device at this point.
+                 NSString *deviceId = [localStore objectForKey:@"pushNotificationId"];
+                 ServiceHub *hub = [[ServiceHub alloc] init];
+                 [hub registerUser:userid withDeviceId:deviceId];
              }
          }];
     }

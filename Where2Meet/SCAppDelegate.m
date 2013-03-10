@@ -103,6 +103,10 @@ NSString *const SCSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"Registering for push notifications...");
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     [FBProfilePictureView class];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -124,9 +128,26 @@ NSString *const SCSessionStateChangedNotification =
         [self showLoginView];
     };
     
-    
-    
     return YES;
+}
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken
+{
+    NSString *deviceToken = [[devToken description] stringByTrimmingCharactersInSet:      [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"content---%@",deviceToken);
+    
+    // Store this in the user defaults for use when we register the device with our webservice.
+    NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
+    [localStore setObject:deviceToken forKey:@"pushNotificationId"];
+    [localStore synchronize];
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err
+{
+    // NOTE: This will always fail on the simulator.
+    NSLog(@"Failed to register for remote notifications: %@",err);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
