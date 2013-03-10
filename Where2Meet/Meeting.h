@@ -12,7 +12,11 @@
 
 @property (nonatomic) int meetingId;
 @property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSNumber *Latitude;
-@property (nonatomic, strong) NSNumber *Longitude;
+@property (nonatomic, strong) NSDate *startDateTime;
+@property (nonatomic, strong) NSDate *endDateTime;
+// TODO: Add timezone
+@property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSNumber *longitude;
+@property (nonatomic, strong) NSMutableArray *invitees;
 
 @end

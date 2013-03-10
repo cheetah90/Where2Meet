@@ -10,4 +10,22 @@
 
 @implementation Meeting
 
+- (NSMutableArray *)invitees
+{
+    if (!_invitees) _invitees = [[NSMutableArray alloc] init];
+    return _invitees;
+}
+
+- (NSDate *)startDateTime
+{
+    if (!_startDateTime) _startDateTime = [NSDate date];
+    return _startDateTime;
+}
+
+- (NSDate *)endDateTime
+{
+    if (!_endDateTime) _endDateTime = [self.startDateTime dateByAddingTimeInterval:3600];
+    return _endDateTime;
+}
+
 @end

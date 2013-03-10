@@ -31,7 +31,9 @@
 		CAC51C3A16ED12FB000F8FBE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */; };
 		CAC51C3D16ED1753000F8FBE /* SCLaunchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C3C16ED1753000F8FBE /* SCLaunchControllerViewController.m */; };
 		CAC51C4016ED287D000F8FBE /* SCMyMeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C3F16ED287D000F8FBE /* SCMyMeetingsViewController.m */; };
-		CAC51C4316ED2FA2000F8FBE /* SCMeetingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4216ED2FA2000F8FBE /* SCMeetingCell.m */; };
+		CAC51C4616ED3802000F8FBE /* SCAddMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */; };
+		CAC51C4916ED3844000F8FBE /* SCStartAndEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4816ED3844000F8FBE /* SCStartAndEndViewController.m */; };
+		CAC51C4C16ED385B000F8FBE /* SCInviteesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4B16ED385A000F8FBE /* SCInviteesViewController.m */; };
 		E32BA89D16E5556F00E5DB20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA89C16E5556F00E5DB20 /* UIKit.framework */; };
 		E32BA89F16E5556F00E5DB20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA89E16E5556F00E5DB20 /* Foundation.framework */; };
 		E32BA8A116E5556F00E5DB20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8A016E5556F00E5DB20 /* CoreGraphics.framework */; };
@@ -99,8 +101,12 @@
 		CAC51C3C16ED1753000F8FBE /* SCLaunchControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLaunchControllerViewController.m; sourceTree = "<group>"; };
 		CAC51C3E16ED287D000F8FBE /* SCMyMeetingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMyMeetingsViewController.h; sourceTree = "<group>"; };
 		CAC51C3F16ED287D000F8FBE /* SCMyMeetingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMyMeetingsViewController.m; sourceTree = "<group>"; };
-		CAC51C4116ED2FA1000F8FBE /* SCMeetingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMeetingCell.h; sourceTree = "<group>"; };
-		CAC51C4216ED2FA2000F8FBE /* SCMeetingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMeetingCell.m; sourceTree = "<group>"; };
+		CAC51C4416ED3802000F8FBE /* SCAddMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAddMeetingViewController.h; sourceTree = "<group>"; };
+		CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddMeetingViewController.m; sourceTree = "<group>"; };
+		CAC51C4716ED3843000F8FBE /* SCStartAndEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCStartAndEndViewController.h; sourceTree = "<group>"; };
+		CAC51C4816ED3844000F8FBE /* SCStartAndEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCStartAndEndViewController.m; sourceTree = "<group>"; };
+		CAC51C4A16ED385A000F8FBE /* SCInviteesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInviteesViewController.h; sourceTree = "<group>"; };
+		CAC51C4B16ED385A000F8FBE /* SCInviteesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInviteesViewController.m; sourceTree = "<group>"; };
 		E32BA89916E5556F00E5DB20 /* Where2Meet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where2Meet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32BA89C16E5556F00E5DB20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E32BA89E16E5556F00E5DB20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -245,16 +251,20 @@
 			isa = PBXGroup;
 			children = (
 				CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */,
+				CAC51C4416ED3802000F8FBE /* SCAddMeetingViewController.h */,
+				CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */,
 				E32BA8AB16E5556F00E5DB20 /* SCAppDelegate.h */,
 				E32BA8AC16E5556F00E5DB20 /* SCAppDelegate.m */,
+				CAC51C4A16ED385A000F8FBE /* SCInviteesViewController.h */,
+				CAC51C4B16ED385A000F8FBE /* SCInviteesViewController.m */,
 				CAC51C3B16ED1753000F8FBE /* SCLaunchControllerViewController.h */,
 				CAC51C3C16ED1753000F8FBE /* SCLaunchControllerViewController.m */,
 				E32BA8C916E5586200E5DB20 /* SCLoginViewController.h */,
 				E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */,
-				CAC51C4116ED2FA1000F8FBE /* SCMeetingCell.h */,
-				CAC51C4216ED2FA2000F8FBE /* SCMeetingCell.m */,
 				CAC51C3E16ED287D000F8FBE /* SCMyMeetingsViewController.h */,
 				CAC51C3F16ED287D000F8FBE /* SCMyMeetingsViewController.m */,
+				CAC51C4716ED3843000F8FBE /* SCStartAndEndViewController.h */,
+				CAC51C4816ED3844000F8FBE /* SCStartAndEndViewController.m */,
 				E32BA8B416E5556F00E5DB20 /* SCViewController.h */,
 				E32BA8B516E5556F00E5DB20 /* SCViewController.m */,
 				CA3C396716E996A7009B5D59 /* Services */,
@@ -372,7 +382,9 @@
 				CA3C39A516E99956009B5D59 /* DCSimpleConverter.m in Sources */,
 				CAC51C3D16ED1753000F8FBE /* SCLaunchControllerViewController.m in Sources */,
 				CAC51C4016ED287D000F8FBE /* SCMyMeetingsViewController.m in Sources */,
-				CAC51C4316ED2FA2000F8FBE /* SCMeetingCell.m in Sources */,
+				CAC51C4616ED3802000F8FBE /* SCAddMeetingViewController.m in Sources */,
+				CAC51C4916ED3844000F8FBE /* SCStartAndEndViewController.m in Sources */,
+				CAC51C4C16ED385B000F8FBE /* SCInviteesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
