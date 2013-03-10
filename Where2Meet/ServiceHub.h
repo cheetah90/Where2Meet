@@ -11,6 +11,11 @@
 
 @interface ServiceHub : NSObject
 
+- (NSString *)deviceId;
+- (NSString *)userId;
+- (void)setDeviceId:(NSString *)deviceId;
+- (void)setUserId:(NSString *)userId;
+
 - (BOOL)registerUser:(NSString *)facebookUserId withDeviceId:(NSString *)deviceId;
 
 - (NSArray *)friendsWithApp:(NSArray *)friendsFacebookUserIds;
@@ -20,6 +25,6 @@
                         onDate:(NSDate *)dateTime
                    withFriends:(NSArray *)friendFacebookUserIds;
 
-- (NSArray *)myMeetings:(NSString *)facebookUserId;
+- (NSArray *)myMeetings;
 
 @end

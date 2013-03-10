@@ -12,6 +12,7 @@ NSString *const SCSessionStateChangedNotification =
 #import "SCAppDelegate.h"
 #import "SCViewController.h"
 #import "SCLoginViewController.h"
+#import "ServiceHub.h"
 
 @interface SCAppDelegate ()
 
@@ -27,79 +28,79 @@ NSString *const SCSessionStateChangedNotification =
 @synthesize navController= _navController;
 @synthesize mainViewController= _mainViewController;
 
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    switch (state) {
-        case FBSessionStateOpen: {
-            UIViewController *topViewController =
-            [self.navController topViewController];
-            if ([[topViewController presentedViewController]
-                 isKindOfClass:[SCLoginViewController class]]) {
-                [topViewController dismissViewControllerAnimated:YES completion:NULL];
-            }
-        }
-            break;
-        case FBSessionStateClosed:
-        case FBSessionStateClosedLoginFailed:
-            // Once the user has logged in, we want them to
-            // be looking at the root view.
-            [self.navController popToRootViewControllerAnimated:NO];
-            
-            [FBSession.activeSession closeAndClearTokenInformation];
-            
-            [self showLoginView];
-            break;
-        default:
-            break;
-    }
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:SCSessionStateChangedNotification
-     object:session];
-    
-    if (error) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
-}
+//- (void)sessionStateChanged:(FBSession *)session
+//                      state:(FBSessionState) state
+//                      error:(NSError *)error
+//{
+//    switch (state) {
+//        case FBSessionStateOpen: {
+//            UIViewController *topViewController =
+//            [self.navController topViewController];
+//            if ([[topViewController presentedViewController]
+//                 isKindOfClass:[SCLoginViewController class]]) {
+//                [topViewController dismissViewControllerAnimated:YES completion:NULL];
+//            }
+//        }
+//            break;
+//        case FBSessionStateClosed:
+//        case FBSessionStateClosedLoginFailed:
+//            // Once the user has logged in, we want them to
+//            // be looking at the root view.
+//            [self.navController popToRootViewControllerAnimated:NO];
+//            
+//            [FBSession.activeSession closeAndClearTokenInformation];
+//            
+//            [self showLoginView];
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//    [[NSNotificationCenter defaultCenter]
+//     postNotificationName:SCSessionStateChangedNotification
+//     object:session];
+//    
+//    if (error) {
+//        UIAlertView *alertView = [[UIAlertView alloc]
+//                                  initWithTitle:@"Error"
+//                                  message:error.localizedDescription
+//                                  delegate:nil
+//                                  cancelButtonTitle:@"OK"
+//                                  otherButtonTitles:nil];
+//        [alertView show];
+//    }
+//}
 
-- (void)openSession
-{
-    [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-     }];
-}
+//- (void)openSession
+//{
+//    [FBSession openActiveSessionWithReadPermissions:nil
+//                                       allowLoginUI:YES
+//                                  completionHandler:
+//     ^(FBSession *session,
+//       FBSessionState state, NSError *error) {
+//         [self sessionStateChanged:session state:state error:error];
+//     }];
+//}
 
-- (void) showLoginView
-{
-    //Get the top of the UINavigationController's stack
-    UIViewController* topViewController= [self.navController topViewController];
-    UIViewController* presentedViewController= [self.navController presentedViewController];
-    
-    if (![presentedViewController isKindOfClass: [SCLoginViewController class]]) {
-        //Allocate a LoginViewController
-        SCLoginViewController* loginViewController= [[SCLoginViewController alloc] initWithNibName: @"SCLoginViewController" bundle:nil];
-        
-        //Assign the LoginViewController to the top of the NavigationController's stack as modal view
-        [topViewController presentViewController:loginViewController animated:NO completion:NULL];
-
-    } else {
-        SCLoginViewController* loginViewController = (SCLoginViewController*) presentedViewController;
-        [loginViewController loginFailed];
-    }
-    
-}
+//- (void) showLoginView
+//{
+//    //Get the top of the UINavigationController's stack
+//    UIViewController* topViewController= [self.navController topViewController];
+//    UIViewController* presentedViewController= [self.navController presentedViewController];
+//    
+//    if (![presentedViewController isKindOfClass: [SCLoginViewController class]]) {
+//        //Allocate a LoginViewController
+//        SCLoginViewController* loginViewController= [[SCLoginViewController alloc] initWithNibName: @"SCLoginViewController" bundle:nil];
+//        
+//        //Assign the LoginViewController to the top of the NavigationController's stack as modal view
+//        [topViewController presentViewController:loginViewController animated:NO completion:NULL];
+//
+//    } else {
+//        SCLoginViewController* loginViewController = (SCLoginViewController*) presentedViewController;
+//        [loginViewController loginFailed];
+//    }
+//    
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -107,26 +108,26 @@ NSString *const SCSessionStateChangedNotification =
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-    [FBProfilePictureView class];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
-    //Test if NavigationController cannot be used as rootViewController
-    
-//    self.mainViewController = [[SCViewController alloc] initWithNibName:@"SCLoginViewController" bundle:nil];
-     
-    self.mainViewController = [[SCViewController alloc] initWithNibName:@"SCViewController" bundle:nil];
-    self.navController = [[UINavigationController alloc] initWithRootViewController: self.mainViewController];
-    self.window.rootViewController = self.navController;
-    [self.window makeKeyAndVisible];
-    
-    //If we have a valid token for the current state
-    if (FBSession.activeSession.state==FBSessionStateCreatedTokenLoaded) {
-        [self openSession];
-    } else {
-        [self showLoginView];
-    };
+//    [FBProfilePictureView class];
+//    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    
+//    //Test if NavigationController cannot be used as rootViewController
+//    
+////    self.mainViewController = [[SCViewController alloc] initWithNibName:@"SCLoginViewController" bundle:nil];
+//     
+//    self.mainViewController = [[SCViewController alloc] initWithNibName:@"SCViewController" bundle:nil];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController: self.mainViewController];
+//    self.window.rootViewController = self.navController;
+//    [self.window makeKeyAndVisible];
+//    
+//    //If we have a valid token for the current state
+//    if (FBSession.activeSession.state==FBSessionStateCreatedTokenLoaded) {
+//        [self openSession];
+//    } else {
+//        [self showLoginView];
+//    };
     
     return YES;
 }
@@ -139,9 +140,8 @@ NSString *const SCSessionStateChangedNotification =
     NSLog(@"content---%@",deviceToken);
     
     // Store this in the user defaults for use when we register the device with our webservice.
-    NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
-    [localStore setObject:deviceToken forKey:@"pushNotificationId"];
-    [localStore synchronize];
+    ServiceHub *serviceHub = [[ServiceHub alloc] init];
+    [serviceHub setDeviceId:deviceToken];
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err

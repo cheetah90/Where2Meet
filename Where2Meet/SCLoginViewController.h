@@ -10,6 +10,9 @@
 
 @interface SCLoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 -(void)loginFailed;
+- (IBAction)performLogin:(id)sender;
 
 @end

@@ -10,13 +10,10 @@
 #import "SCAppDelegate.h"
 
 @interface SCLoginViewController ()
-- (IBAction)performLogin:(id)sender;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
 @implementation SCLoginViewController
-@synthesize spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,9 +39,27 @@
 - (IBAction)performLogin:(id)sender {
     [self.spinner startAnimating];
     
-    SCAppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate openSession];
-    
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         
+         switch (state)
+         {
+             case FBSessionStateOpen:
+                 [self performSegueWithIdentifier: @"LoginToLoggedIn" sender:session];
+                 break;
+             case FBSessionStateClosed:
+             case FBSessionStateClosedLoginFailed:
+                 // TODO: Handle this case
+                 break;
+             default:
+                 break;
+         }
+         
+         //[self sessionStateChanged:session state:state error:error];
+     }];
 }
 
 - (void)loginFailed{

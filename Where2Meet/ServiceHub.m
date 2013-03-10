@@ -61,9 +61,9 @@
 }
 
 // /facebookapi/my_metings?user_id=myuserid
-- (NSArray *)myMeetings:(NSString *)facebookUserId
+- (NSArray *)myMeetings
 {
-    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/my_meetings?user_id=%@", facebookUserId];
+    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/my_meetings?user_id=%@", [self userId]];
     
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
@@ -72,6 +72,32 @@
     
     DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[Meeting class]];
     return [parser parseArray:[jsonParsed objectForKey:@"meetings"]];
+}
+
+- (void)setUserId:(NSString *)userId
+{
+    NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
+    [localStore setObject:userId forKey:@"user_id"];
+    [localStore synchronize];
+}
+
+- (NSString *)userId
+{
+    NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
+    return [localStore objectForKey:@"user_id"];
+}
+
+- (void)setDeviceId:(NSString *)deviceId
+{
+    NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
+    [localStore setObject:deviceId forKey:@"pushNotificationId"];
+    [localStore synchronize];
+}
+
+- (NSString *)deviceId
+{
+    NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
+    return [localStore objectForKey:@"pushNotificationId"];
 }
 
 @end
