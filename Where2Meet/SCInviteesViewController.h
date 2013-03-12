@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCInviteesViewController : UIViewController
+@interface SCInviteesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

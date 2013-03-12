@@ -11,6 +11,9 @@
 
 @interface ServiceHub : NSObject
 
+// Singleton pattern, retrieves an active and valid ServiceHub instance.
++ (ServiceHub *)current;
+
 - (NSString *)deviceId;
 - (NSString *)userId;
 - (void)setDeviceId:(NSString *)deviceId;
@@ -20,10 +23,10 @@
 
 - (NSArray *)friendsWithApp:(NSArray *)friendsFacebookUserIds;
 
-- (int)createMeetingWithUserId:(NSString *)creatorFacebookUserId
-                     withTitle:(NSString *)title
-                        onDate:(NSDate *)dateTime
-                   withFriends:(NSArray *)friendFacebookUserIds;
+- (BOOL)createMeetingWithTitle:(NSString *)title
+                withStartDate:(NSDate *)startDateTime
+                  withEndDate:(NSDate *)endDateTime
+                  withFriends:(NSArray *)friendFacebookUserIds;
 
 - (NSArray *)myMeetings;
 

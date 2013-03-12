@@ -35,8 +35,7 @@ NSString *const SCSessionStateChangedNotification =
     NSLog(@"content---%@",deviceToken);
     
     // Store this in the user defaults for use when we register the device with our webservice.
-    ServiceHub *serviceHub = [[ServiceHub alloc] init];
-    [serviceHub setDeviceId:deviceToken];
+    [[ServiceHub current] setDeviceId:deviceToken];
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err

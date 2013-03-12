@@ -12,6 +12,14 @@
 
 @implementation ServiceHub
 
+static ServiceHub *serviceHub;
+
++ (ServiceHub *)current
+{
+    if (!serviceHub) serviceHub = [[ServiceHub alloc] init];
+    return serviceHub;
+}
+
 // /facebookapi/register?user_id=my_user_Id&device_id=my_device_id
 - (BOOL)registerUser:(NSString *)facebookUserId withDeviceId:(NSString *)deviceId
 {
@@ -50,14 +58,27 @@
     return [jsonParsed objectForKey:@"users"];
 }
 
-// /facebookapi/create_meeting?user_id=my_user_id&title=cool meeting&date_time=012-03-05T13:10:10.1234&geocode=-23.124212,125.123241&invitee_user_ids=user_id1,user_id2
-- (int)createMeetingWithUserId:(NSString *)creatorFacebookUserId
-                     withTitle:(NSString *)title
-                        onDate:(NSDate *)dateTime
+// /facebookapi/create_meeting?user_id=my_user_id&title=cool meeting&start_date_time=012-03-05T13:10:10.1234&end_date_time=012-03-05T14:10:10.1234&geocode=-23.124212,125.123241&invitee_user_ids=user_id1,user_id2
+- (BOOL)createMeetingWithTitle:(NSString *)title
+                 withStartDate:(NSDate *)startDateTime
+                   withEndDate:(NSDate *)endDateTime
                    withFriends:(NSArray *)friendFacebookUserIds
 {
-    // TODO: Impliment this.
-    return nil;
+    
+    NSString* escapedTitle = [title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    double startTime = [startDateTime timeIntervalSince1970];
+    double endTime = [endDateTime timeIntervalSince1970];
+    
+    // TODO: actually pass along a comma delimited string for the friend id collection
+    // TODO: actually pass along a comma delimited string for the geocode once we get that from location services.
+    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/create_meeting?user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&geocode=%@&invitee_user_ids=%@", [self userId], escapedTitle, startTime, endTime, @"0,0", @"1,2"];
+    
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:registerUrl]];
+    [NSJSONSerialization JSONObjectWithData:data
+                                    options:NSJSONReadingMutableContainers error:&error];
+    
+    return error ? NO : YES;
 }
 
 // /facebookapi/my_metings?user_id=myuserid

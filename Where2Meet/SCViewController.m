@@ -17,8 +17,8 @@
 
 @implementation SCViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
     if (FBSession.activeSession.isOpen) {
         [self populateUserDetails];
@@ -39,7 +39,7 @@
                  self.userProfileImage.profileID = userid;
                  
                  // Store the facebook userid for future use.
-                 ServiceHub *hub = [[ServiceHub alloc] init];
+                 ServiceHub *hub = [ServiceHub current];
                  [hub setUserId:userid];
                  
                  // The push notification id can change at any time, so

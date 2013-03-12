@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *startDateTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeZoneLabel;
+- (IBAction)donePressed:(id)sender;
+- (IBAction)cancelPressed:(id)sender;
 
 @end

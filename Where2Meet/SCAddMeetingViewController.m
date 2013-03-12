@@ -9,6 +9,7 @@
 #import "SCAddMeetingViewController.h"
 #import "Meeting.h"
 #import "SCStartAndEndViewController.h"
+#import "ServiceHub.h"
 
 @interface SCAddMeetingViewController ()
 
@@ -31,11 +32,12 @@
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
     formatter.timeZone = destinationTimeZone;
     [formatter setDateStyle:NSDateFormatterLongStyle];
-    [formatter setDateFormat:@"MM/dd/yyyy hh:mma"];
+    [formatter setDateFormat:@"MMM dd h:mm a"];
     
     self.startDateTimeLabel.text = [formatter stringFromDate:self.meetingModel.startDateTime];
     self.endDateTimeLabel.text = [formatter stringFromDate:self.meetingModel.endDateTime];
     self.timeZoneLabel.text = @"Chicago"; // TODO: Add in timezone properly
+    self.titleLabel.text = self.meetingModel.title;
 }
 
 - (Meeting *)meetingModel
@@ -46,6 +48,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    self.meetingModel.title = self.titleLabel.text;
+    
     if ([segue.identifier isEqualToString:@"AddMeetingToStartAndEnd"])
     {
         SCStartAndEndViewController *controller = segue.destinationViewController;
@@ -53,4 +57,19 @@
     }
 }
 
+- (IBAction)donePressed:(id)sender
+{
+    // Save the meeting by calling the service.
+    [[ServiceHub current] createMeetingWithTitle:self.titleLabel.text
+                                   withStartDate:self.meetingModel.startDateTime
+                                     withEndDate:self.meetingModel.endDateTime
+                                     withFriends:self.meetingModel.invitees];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancelPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

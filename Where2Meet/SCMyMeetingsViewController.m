@@ -12,16 +12,15 @@
 
 @interface SCMyMeetingsViewController ()
 
-@property (strong, nonatomic) ServiceHub *serviceHub;
 @property (strong, nonatomic) NSArray *myMeetings;
 
 @end
 
 @implementation SCMyMeetingsViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:animated];
     [self refreshMeetings];
 }
 
@@ -31,14 +30,14 @@
     // Network call, do this on a background thread.
     dispatch_queue_t persistentStorageQueue = dispatch_queue_create("apiQueue", NULL);
     dispatch_async(persistentStorageQueue, ^{
-        self.myMeetings = [self.serviceHub myMeetings];
+        NSArray *downloadedMeetings = [[ServiceHub current] myMeetings];
+        
+        // Notify the UI to refresh
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.myMeetings = downloadedMeetings;
+            [self.tableView reloadData];
+        });
     });
-}
-
-- (ServiceHub *)serviceHub
-{
-    if (!_serviceHub) _serviceHub = [[ServiceHub alloc] init];
-    return _serviceHub;
 }
 
 - (NSArray *)myMeetings
