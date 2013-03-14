@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface SCViewController : UIViewController
+@interface SCViewController : UIViewController <FBFriendPickerDelegate>
 
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *userProfileImage;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+- (IBAction)inviteFBFriends:(id)sender;
+@property (strong, nonatomic) NSArray* selectedFriends; //Hold selected friends
+@property (strong, nonatomic) FBFriendPickerViewController *friendPickerController; //Hold FBFriendPickerView
 
 @end

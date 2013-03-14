@@ -17,6 +17,10 @@
 
 @implementation SCViewController
 
+@synthesize friendPickerController = _friendPickerController;
+@synthesize selectedFriends= _selectedFriends;
+
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
@@ -26,12 +30,12 @@
 }
 
 - (void)populateUserDetails
-{  
+{
     if (FBSession.activeSession.isOpen) {
         [[FBRequest requestForMe] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
-           NSError *error) {   
+           NSError *error) {
              if (!error) {
                  NSString* userid;
                  self.userNameLabel.text = user.name;
@@ -79,6 +83,40 @@
 
 - (void)sessionStateChanged:(NSNotification*)notification {
     [self populateUserDetails];
+}
+
+- (IBAction)inviteFBFriends:(id)sender {
+    //Create instance of FBFriendPicker
+    if (!self.friendPickerController) {
+        self.friendPickerController = [[FBFriendPickerViewController alloc]
+                                       initWithNibName:nil bundle:nil];
+        self.friendPickerController.title = @"Select friends";
+    }
+    
+    // Set the friend picker delegate
+    self.friendPickerController.delegate = self;
+    
+    [self.friendPickerController loadData];
+    [self.navigationController pushViewController:self.friendPickerController
+                                         animated:true];
+
+}
+
+- (void)dealloc
+{
+    _friendPickerController.delegate = nil;
+    self.friendPickerController=nil;
+}
+
+- (void)friendPickerViewControllerSelectionDidChange:
+(FBFriendPickerViewController *)friendPicker
+{
+    self.selectedFriends = friendPicker.selection;
+    
+    //Triggered when friend is selected. Then, app communicates with server: send invitation.
+    //friendPicker.selection stores the multiple users in NSArrary, each of them are conformed to FBGraphUser protocol. Refer to https://developers.facebook.com/docs/reference/ios/3.2/protocol/FBGraphUser#id rgarding how to retrieve userid.
+    
+    
 }
 
 @end

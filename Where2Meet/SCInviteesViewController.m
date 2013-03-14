@@ -14,6 +14,7 @@
 
 @implementation SCInviteesViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,5 +32,11 @@
     //cell.textLabel.text = meeting.title;
     return cell;
 }
+
+
+- (IBAction)addFriends:(id)sender {
+
+ }
+
 
 @end
