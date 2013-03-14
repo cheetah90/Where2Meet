@@ -28,7 +28,7 @@ static ServiceHub *serviceHub;
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:registerUrl]];
     [NSJSONSerialization JSONObjectWithData:data
-                                                               options:NSJSONReadingMutableContainers error:&error];
+                                    options:NSJSONReadingMutableContainers error:&error];
     
     return error ? NO : YES;
 }
@@ -58,6 +58,21 @@ static ServiceHub *serviceHub;
     return [jsonParsed objectForKey:@"users"];
 }
 
+- (NSMutableString *)buildInviteeUserIds:(NSArray *)friendFacebookUserIds
+{
+    NSMutableString *inviteeUserIds = [@"" mutableCopy];
+    for (NSString *facebookId in friendFacebookUserIds)
+    {
+        if (![inviteeUserIds isEqualToString:@""])
+        {
+            [inviteeUserIds appendString:@","];
+        }
+        
+        [inviteeUserIds appendString:facebookId];
+    }
+    return inviteeUserIds;
+}
+
 // /facebookapi/create_meeting?user_id=my_user_id&title=cool meeting&start_date_time=012-03-05T13:10:10.1234&end_date_time=012-03-05T14:10:10.1234&geocode=-23.124212,125.123241&invitee_user_ids=user_id1,user_id2
 - (BOOL)createMeetingWithTitle:(NSString *)title
                  withStartDate:(NSDate *)startDateTime
@@ -68,10 +83,32 @@ static ServiceHub *serviceHub;
     NSString* escapedTitle = [title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     double startTime = [startDateTime timeIntervalSince1970];
     double endTime = [endDateTime timeIntervalSince1970];
+    NSMutableString *inviteeUserIds = [self buildInviteeUserIds:friendFacebookUserIds];
     
-    // TODO: actually pass along a comma delimited string for the friend id collection
     // TODO: actually pass along a comma delimited string for the geocode once we get that from location services.
-    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/create_meeting?user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&geocode=%@&invitee_user_ids=%@", [self userId], escapedTitle, startTime, endTime, @"0,0", @"1,2"];
+    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/create_meeting?user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&geocode=%@&invitee_user_ids=%@", [self userId], escapedTitle, startTime, endTime, @"0,0", inviteeUserIds];
+    
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:registerUrl]];
+    [NSJSONSerialization JSONObjectWithData:data
+                                    options:NSJSONReadingMutableContainers error:&error];
+    
+    return error ? NO : YES;
+}
+
+// /facebookapi/update_meeting?meeting_id=21342&user_id=my_user_id&title=cool meeting&start_date_time=012-03-05T13:10:10.1234&end_date_time=012-03-05T14:10:10.1234&invitee_user_ids=user_id1,user_id2
+- (BOOL)updateMeetingWithMeetingId:(int)meetingId
+                         withTitle:(NSString *)title
+                     withStartDate:(NSDate *)startDateTime
+                       withEndDate:(NSDate *)endDateTime
+                       withFriends:(NSArray *)friendFacebookUserIds
+{
+    NSString* escapedTitle = [title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    double startTime = [startDateTime timeIntervalSince1970];
+    double endTime = [endDateTime timeIntervalSince1970];
+    NSMutableString *inviteeUserIds = [self buildInviteeUserIds:friendFacebookUserIds];
+    
+    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/update_meeting?meeting_id=%d&user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&invitee_user_ids=%@", meetingId, [self userId], escapedTitle, startTime, endTime, inviteeUserIds];
     
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:registerUrl]];

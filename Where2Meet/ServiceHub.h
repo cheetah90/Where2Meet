@@ -24,9 +24,15 @@
 - (NSArray *)friendsWithApp:(NSArray *)friendsFacebookUserIds;
 
 - (BOOL)createMeetingWithTitle:(NSString *)title
-                withStartDate:(NSDate *)startDateTime
-                  withEndDate:(NSDate *)endDateTime
-                  withFriends:(NSArray *)friendFacebookUserIds;
+                 withStartDate:(NSDate *)startDateTime
+                   withEndDate:(NSDate *)endDateTime
+                   withFriends:(NSArray *)friendFacebookUserIds;
+
+- (BOOL)updateMeetingWithMeetingId:(int)meetingId
+                         withTitle:(NSString *)title
+                     withStartDate:(NSDate *)startDateTime
+                       withEndDate:(NSDate *)endDateTime
+                       withFriends:(NSArray *)friendFacebookUserIds;
 
 - (NSArray *)myMeetings;
 
