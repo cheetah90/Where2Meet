@@ -9,6 +9,7 @@
 #import "SCMyMeetingsViewController.h"
 #import "ServiceHub.h"
 #import "Meeting.h"
+#import "SCAddMeetingViewController.h"
 
 @interface SCMyMeetingsViewController ()
 
@@ -58,6 +59,31 @@
     Meeting *meeting = [self.myMeetings objectAtIndex:indexPath.row];
     cell.textLabel.text = meeting.title;
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"MyMeetingsToAddMeeting"])
+    {
+        if (sender != nil)
+        {
+            UINavigationController *navController = segue.destinationViewController;
+            SCAddMeetingViewController *controller = (SCAddMeetingViewController *)[navController topViewController];
+            controller.meetingModel = sender;
+        }
+    }
+}
+
+// Handle what occures when an existing meeting is selected
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Meeting *selectedMeeting = [self.myMeetings objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier: @"MyMeetingsToAddMeeting" sender:selectedMeeting];
+}
+
+- (IBAction)addMeeting:(id)sender
+{
+    [self performSegueWithIdentifier: @"MyMeetingsToAddMeeting" sender:nil];
 }
 
 @end

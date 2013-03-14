@@ -7,13 +7,12 @@
 //
 
 #import "SCAddMeetingViewController.h"
-#import "Meeting.h"
 #import "SCStartAndEndViewController.h"
 #import "ServiceHub.h"
 
 @interface SCAddMeetingViewController ()
 
-@property (strong, nonatomic) Meeting *meetingModel;
+@property (nonatomic) BOOL isNew;
 
 @end
 
@@ -28,6 +27,17 @@
 {
     [super viewWillAppear:animated];
     
+    if (!self.meetingModel)
+    {
+        self.isNew = YES;
+        self.meetingModel = [[Meeting alloc] init];
+        self.deleteButton.hidden = YES;
+    }
+    else
+    {
+        self.navigationController.navigationBar.topItem.title = @"Meeting Details";
+    }
+    
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
     formatter.timeZone = destinationTimeZone;
@@ -38,12 +48,6 @@
     self.endDateTimeLabel.text = [formatter stringFromDate:self.meetingModel.endDateTime];
     self.timeZoneLabel.text = @"Chicago"; // TODO: Add in timezone properly
     self.titleLabel.text = self.meetingModel.title;
-}
-
-- (Meeting *)meetingModel
-{
-    if (!_meetingModel) _meetingModel = [[Meeting alloc] init];
-    return _meetingModel;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -57,13 +61,35 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // If the cancel button was pressed
+    if (indexPath.row == 4)
+    {
+        // TODO: Add API call to cancel a meeting
+    }
+}
+
 - (IBAction)donePressed:(id)sender
 {
-    // Save the meeting by calling the service.
-    [[ServiceHub current] createMeetingWithTitle:self.titleLabel.text
-                                   withStartDate:self.meetingModel.startDateTime
-                                     withEndDate:self.meetingModel.endDateTime
-                                     withFriends:self.meetingModel.invitees];
+    self.meetingModel.title = self.titleLabel.text;
+    
+    if (self.isNew)
+    {
+        // Save the meeting by calling the service.
+        [[ServiceHub current] createMeetingWithTitle:self.meetingModel.title
+                                       withStartDate:self.meetingModel.startDateTime
+                                         withEndDate:self.meetingModel.endDateTime
+                                         withFriends:self.meetingModel.invitees];
+    }
+    else
+    {
+        [[ServiceHub current] updateMeetingWithMeetingId:self.meetingModel.meetingId
+                                               withTitle:self.meetingModel.title
+                                           withStartDate:self.meetingModel.startDateTime
+                                             withEndDate:self.meetingModel.endDateTime
+                                             withFriends:self.meetingModel.invitees];
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

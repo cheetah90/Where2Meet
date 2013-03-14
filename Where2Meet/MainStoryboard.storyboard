@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -224,12 +224,13 @@
                     <navigationItem key="navigationItem" title="My Meetings" id="mgF-ol-N5O">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="udM-Wc-upd">
                             <connections>
-                                <segue destination="8Eu-TD-lBV" kind="modal" id="pWQ-fm-Q51"/>
+                                <action selector="addMeeting:" destination="cBN-rv-ghN" id="WTV-iV-WYh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2au-Ex-Tkm" id="Q7h-Rb-UsF"/>
+                        <segue destination="8Eu-TD-lBV" kind="modal" identifier="MyMeetingsToAddMeeting" id="mCH-po-s8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KhR-Hh-GLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -373,14 +374,44 @@
                             </tableViewSection>
                             <tableViewSection id="E0K-AN-1pN">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="itn-vE-4ql">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="aJb-0g-LZn" style="IBUITableViewCellStyleDefault" id="itn-vE-4ql">
                                         <rect key="frame" x="0.0" y="251" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Locations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJb-0g-LZn">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="HPl-lD-Y3g">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" textLabel="t0M-BO-17W" style="IBUITableViewCellStyleDefault" id="DBr-J4-9h6">
+                                        <rect key="frame" x="0.0" y="317" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Cancel Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t0M-BO-17W">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="0.1110359392" blue="0.061840479560000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -403,6 +434,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteButton" destination="DBr-J4-9h6" id="xeu-aj-ez8"/>
                         <outlet property="endDateTimeLabel" destination="PUO-bR-SJG" id="IcE-BW-9lm"/>
                         <outlet property="startDateTimeLabel" destination="PvZ-lg-riI" id="pHM-k5-rEW"/>
                         <outlet property="timeZoneLabel" destination="JWZ-O9-EH3" id="YX3-Ot-EbZ"/>
@@ -754,14 +786,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <relationships>
                 <relationship kind="action" name="cancelPressed:"/>
                 <relationship kind="action" name="donePressed:"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="endDateTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startDateTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeZoneLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UITextField"/>
             </relationships>
-        </class>
-        <class className="SCInviteFriendsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCInviteFriendsViewController.h"/>
         </class>
         <class className="SCInviteesViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCInviteesViewController.h"/>
@@ -783,6 +813,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="SCMyMeetingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCMyMeetingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addMeeting:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

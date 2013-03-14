@@ -11,5 +11,6 @@
 @interface SCMyMeetingsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)addMeeting:(id)sender;
 
 @end
