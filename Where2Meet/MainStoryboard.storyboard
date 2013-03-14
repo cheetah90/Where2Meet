@@ -389,31 +389,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="dcM-QA-aFs" kind="push" id="Zou-iv-eOW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="HPl-lD-Y3g">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" textLabel="t0M-BO-17W" style="IBUITableViewCellStyleDefault" id="DBr-J4-9h6">
-                                        <rect key="frame" x="0.0" y="317" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Cancel Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t0M-BO-17W">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="0.1110359392" blue="0.061840479560000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </tableViewCell>
-                                </cells>
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -434,7 +417,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteButton" destination="DBr-J4-9h6" id="xeu-aj-ez8"/>
                         <outlet property="endDateTimeLabel" destination="PUO-bR-SJG" id="IcE-BW-9lm"/>
                         <outlet property="startDateTimeLabel" destination="PvZ-lg-riI" id="pHM-k5-rEW"/>
                         <outlet property="timeZoneLabel" destination="JWZ-O9-EH3" id="YX3-Ot-EbZ"/>
@@ -501,7 +483,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fnK-Ph-al4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928" y="647"/>
+            <point key="canvasLocation" x="3960" y="243"/>
+        </scene>
+        <!--Locations View Controller - Locations-->
+        <scene sceneID="x1f-Sa-swq">
+            <objects>
+                <viewController id="dcM-QA-aFs" customClass="SCLocationsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fob-pH-Jzx">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Swc-27-h6E"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Swc-27-h6E" firstAttribute="bottom" secondItem="fob-pH-Jzx" secondAttribute="bottom" type="default" id="7wq-dC-Z9X"/>
+                            <constraint firstItem="Swc-27-h6E" firstAttribute="leading" secondItem="fob-pH-Jzx" secondAttribute="leading" type="default" id="Jud-IJ-9xe"/>
+                            <constraint firstItem="Swc-27-h6E" firstAttribute="top" secondItem="fob-pH-Jzx" secondAttribute="top" type="default" id="iKe-3n-ylt"/>
+                            <constraint firstItem="Swc-27-h6E" firstAttribute="trailing" secondItem="fob-pH-Jzx" secondAttribute="trailing" type="default" id="zMF-Fa-7Up"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Locations" id="0Yh-2M-s3e"/>
+                    <connections>
+                        <outlet property="mapView" destination="Swc-27-h6E" id="mAk-ny-LYH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZp-IF-OAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3960" y="893"/>
         </scene>
         <!--Invite Friends View Controller-->
         <scene sceneID="aM1-5p-LWw">
@@ -531,7 +540,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOW-8V-KEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4462" y="641"/>
+            <point key="canvasLocation" x="4494" y="237"/>
         </scene>
         <!--Start And End View Controller - Start & End-->
         <scene sceneID="tTs-Qb-kgj">
@@ -716,7 +725,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHq-XJ-yrC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3928" y="-19"/>
+            <point key="canvasLocation" x="3960" y="-423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Jc-5J-p7h">
@@ -802,6 +811,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="SCLaunchControllerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLaunchControllerViewController.h"/>
+        </class>
+        <class className="SCLocationsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLocationsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
         </class>
         <class className="SCLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLoginViewController.h"/>
