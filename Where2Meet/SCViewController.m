@@ -31,7 +31,7 @@
         [[FBRequest requestForMe] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
            NSDictionary<FBGraphUser> *user,
-           NSError *error) {
+           NSError *error) {   
              if (!error) {
                  NSString* userid;
                  self.userNameLabel.text = user.name;
