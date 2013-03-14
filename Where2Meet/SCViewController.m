@@ -30,7 +30,7 @@
 }
 
 - (void)populateUserDetails
-{
+{   
     if (FBSession.activeSession.isOpen) {
         [[FBRequest requestForMe] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
