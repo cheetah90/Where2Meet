@@ -61,7 +61,7 @@
 - (IBAction)pickerValueChanged:(id)sender
 {
     NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-    
+
     // If start date is currently selected
     if (selectedIndexPath.row == 0)
     {
