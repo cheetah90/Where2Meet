@@ -40,9 +40,12 @@
                  [self performSegueWithIdentifier: @"LaunchToLoggedIn" sender:session];
                  break;
              default:
+                 [FBSession.activeSession closeAndClearTokenInformation];
                  [self performSegueWithIdentifier: @"LaunchToLogin" sender:session];
                  break;
          }
+         
+         
      }];
 }
 

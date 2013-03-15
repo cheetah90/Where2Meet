@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -71,7 +71,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="performLogin:" destination="GR0-7m-s79" eventType="touchUpInside" id="ypg-SE-blD"/>
+                                    <action selector="performLogin:" destination="GR0-7m-s79" eventType="touchUpInside" id="BqB-fr-Ilf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Login with your Facebook account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="166" translatesAutoresizingMaskIntoConstraints="NO" id="Uai-m9-3S8">
@@ -99,7 +99,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="J0p-jE-sdh"/>
                     <connections>
-                        <outlet property="spinner" destination="tod-ix-Fpt" id="3z5-KQ-far"/>
+                        <outlet property="spinner" destination="tod-ix-Fpt" id="A8s-6u-anI"/>
                         <segue destination="nA6-He-foe" kind="modal" identifier="LoginToLoggedIn" id="Led-8n-Kx1"/>
                     </connections>
                 </viewController>

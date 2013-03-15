@@ -260,9 +260,9 @@
 		E32BA8A216E5556F00E5DB20 /* Where2Meet */ = {
 			isa = PBXGroup;
 			children = (
+				CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */,
 				CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */,
 				CA9F9D9A16F2021700DFE39C /* LocationAnnotation.m */,
-				CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */,
 				CAC51C4416ED3802000F8FBE /* SCAddMeetingViewController.h */,
 				CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */,
 				E32BA8AB16E5556F00E5DB20 /* SCAppDelegate.h */,

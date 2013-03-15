@@ -11,9 +11,13 @@
 
 @interface SCLoginViewController ()
 
+- (IBAction)performLogin:(id)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 @end
 
 @implementation SCLoginViewController
+@synthesize spinner;
 
 - (void)viewDidLoad
 {
@@ -44,6 +48,7 @@
              case FBSessionStateClosed:
              case FBSessionStateClosedLoginFailed:
                  // TODO: Handle this case
+                 [self loginFailed];
                  break;
              default:
                  break;
