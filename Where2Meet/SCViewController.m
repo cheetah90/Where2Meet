@@ -86,32 +86,15 @@
 }
 
 - (IBAction)inviteFBFriends:(id)sender {
-        
- 
-    //Create instance of FBFriendPicker
-    if (!self.friendPickerController) {
-        self.friendPickerController = [[FBFriendPickerViewController alloc]
-                                       initWithNibName:nil bundle:nil];
-        
-        // Set the friend picker delegate
-        self.friendPickerController.delegate = self;
-        self.friendPickerController.title = @"Select friends";
-    }
     
-    
-    [self.friendPickerController loadData];
-    
-    //Set it as modal view
-    [self.friendPickerController presentModallyFromViewController:self animated:YES handler:nil];
-    
-    
-
+    //Call the webDialog to invite friends
+    [self sendRequestDialog];
 
 }
 
-- (void)sendRequest {
+- (void)sendRequestDialog {
     // Display the requests dialog
-    [FBWebDialogs presentRequestsDialogModallyWithSession:nil message:@"Learn how to make your iOS apps social." title:nil parameters:nil handler:nil];
+    [FBWebDialogs presentRequestsDialogModallyWithSession:nil message:@"Selected Friends to join Where2Meet" title:nil parameters:nil handler:nil];
 }
 
 
@@ -119,18 +102,6 @@
 {
     _friendPickerController.delegate = nil;
     self.friendPickerController=nil;
-}
-
-- (void)friendPickerViewControllerSelectionDidChange:
-(FBFriendPickerViewController *)friendPicker
-{
-    self.selectedFriends = friendPicker.selection;
-    
-    //Triggered when friend is selected. Then, app communicates with server: send invitation.
-    //friendPicker.selection stores the multiple users in NSArrary, each of them are conformed to FBGraphUser protocol. Refer to https://developers.facebook.com/docs/reference/ios/3.2/protocol/FBGraphUser#id rgarding how to retrieve userid.
-    
-    
-    
 }
 
 
