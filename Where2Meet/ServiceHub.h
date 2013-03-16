@@ -36,4 +36,7 @@
 
 - (NSArray *)myMeetings;
 
+- (BOOL)respondToMeetingInvite:(NSString *)meetingId
+                      accepted:(BOOL)accepted;
+
 @end
