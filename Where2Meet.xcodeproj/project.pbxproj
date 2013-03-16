@@ -52,6 +52,9 @@
 		E32BA8C616E5565100E5DB20 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C516E5565100E5DB20 /* Social.framework */; };
 		E32BA8C816E5565D00E5DB20 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C716E5565D00E5DB20 /* Accounts.framework */; };
 		E32BA8CC16E5586200E5DB20 /* SCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */; };
+		E363431416F2F356005DF3B0 /* SCInviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E363431316F2F356005DF3B0 /* SCInviteFriendsViewController.m */; };
+		E3E5DAD516F2CDDE00E7F3A6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E5DAD416F2CDDE00E7F3A6 /* FacebookSDK.framework */; };
+		E3E5DAD716F2CE0500E7F3A6 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3E5DAD616F2CE0500E7F3A6 /* FacebookSDKResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,6 +138,10 @@
 		E32BA8C716E5565D00E5DB20 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E32BA8C916E5586200E5DB20 /* SCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoginViewController.h; sourceTree = "<group>"; };
 		E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoginViewController.m; sourceTree = "<group>"; };
+		E363431216F2F356005DF3B0 /* SCInviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInviteFriendsViewController.h; sourceTree = "<group>"; };
+		E363431316F2F356005DF3B0 /* SCInviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInviteFriendsViewController.m; sourceTree = "<group>"; };
+		E3E5DAD416F2CDDE00E7F3A6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		E3E5DAD616F2CE0500E7F3A6 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */,
+				E363431216F2F356005DF3B0 /* SCInviteFriendsViewController.h */,
+				E363431316F2F356005DF3B0 /* SCInviteFriendsViewController.m */,
 				CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */,
 				CA9F9D9A16F2021700DFE39C /* LocationAnnotation.m */,
 				CAC51C4416ED3802000F8FBE /* SCAddMeetingViewController.h */,
@@ -397,6 +406,7 @@
 				CAC51C4C16ED385B000F8FBE /* SCInviteesViewController.m in Sources */,
 				CA9F9D9816F1FF7A00DFE39C /* SCLocationsViewController.m in Sources */,
 				CA9F9D9B16F2021700DFE39C /* LocationAnnotation.m in Sources */,
+				E363431416F2F356005DF3B0 /* SCInviteFriendsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
