@@ -28,6 +28,7 @@
 		CA3C39A416E99956009B5D59 /* DCReferenceKeyParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C399016E99956009B5D59 /* DCReferenceKeyParser.m */; };
 		CA3C39A516E99956009B5D59 /* DCSimpleConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C399216E99956009B5D59 /* DCSimpleConverter.m */; };
 		CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */; };
+		CA4A889116F4D0100078DC44 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4A889016F4D0100078DC44 /* FacebookSDK.framework */; };
 		CA9F9D9816F1FF7A00DFE39C /* SCLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F9D9716F1FF7A00DFE39C /* SCLocationsViewController.m */; };
 		CA9F9D9B16F2021700DFE39C /* LocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F9D9A16F2021700DFE39C /* LocationAnnotation.m */; };
 		CA9F9D9E16F202C400DFE39C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F9D9D16F202C400DFE39C /* MapKit.framework */; };
@@ -51,8 +52,6 @@
 		E32BA8C616E5565100E5DB20 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C516E5565100E5DB20 /* Social.framework */; };
 		E32BA8C816E5565D00E5DB20 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C716E5565D00E5DB20 /* Accounts.framework */; };
 		E32BA8CC16E5586200E5DB20 /* SCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */; };
-		E3E5DAD516F2CDDE00E7F3A6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E5DAD416F2CDDE00E7F3A6 /* FacebookSDK.framework */; };
-		E3E5DAD716F2CE0500E7F3A6 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3E5DAD616F2CE0500E7F3A6 /* FacebookSDKResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +98,7 @@
 		CA3C399316E99956009B5D59 /* DCValueConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCValueConverter.h; path = Where2Meet/DCValueConverter.h; sourceTree = "<group>"; };
 		CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KeyValueObjectMapping-Info.plist"; path = "Where2Meet/KeyValueObjectMapping-Info.plist"; sourceTree = "<group>"; };
 		CA3C39A716E99975009B5D59 /* KeyValueObjectMapping-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KeyValueObjectMapping-Prefix.pch"; path = "Where2Meet/KeyValueObjectMapping-Prefix.pch"; sourceTree = "<group>"; };
+		CA4A889016F4D0100078DC44 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Where2Meet/FacebookSDK.framework; sourceTree = "<group>"; };
 		CA9F9D9616F1FF7A00DFE39C /* SCLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocationsViewController.h; sourceTree = "<group>"; };
 		CA9F9D9716F1FF7A00DFE39C /* SCLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocationsViewController.m; sourceTree = "<group>"; };
 		CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAnnotation.h; sourceTree = "<group>"; };
@@ -135,8 +135,6 @@
 		E32BA8C716E5565D00E5DB20 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		E32BA8C916E5586200E5DB20 /* SCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoginViewController.h; sourceTree = "<group>"; };
 		E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoginViewController.m; sourceTree = "<group>"; };
-		E3E5DAD416F2CDDE00E7F3A6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		E3E5DAD616F2CE0500E7F3A6 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +149,7 @@
 				E32BA89D16E5556F00E5DB20 /* UIKit.framework in Frameworks */,
 				E32BA89F16E5556F00E5DB20 /* Foundation.framework in Frameworks */,
 				E32BA8A116E5556F00E5DB20 /* CoreGraphics.framework in Frameworks */,
-				E3E5DAD516F2CDDE00E7F3A6 /* FacebookSDK.framework in Frameworks */,
+				CA4A889116F4D0100078DC44 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,8 +242,7 @@
 		E32BA89B16E5556F00E5DB20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3E5DAD616F2CE0500E7F3A6 /* FacebookSDKResources.bundle */,
-				E3E5DAD416F2CDDE00E7F3A6 /* FacebookSDK.framework */,
+				CA4A889016F4D0100078DC44 /* FacebookSDK.framework */,
 				E32BA8C716E5565D00E5DB20 /* Accounts.framework */,
 				E32BA8C316E5564A00E5DB20 /* AdSupport.framework */,
 				E32BA8A016E5556F00E5DB20 /* CoreGraphics.framework */,
@@ -359,7 +356,6 @@
 				E32BA8B316E5556F00E5DB20 /* Default-568h@2x.png in Resources */,
 				CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */,
 				CAC51C3A16ED12FB000F8FBE /* MainStoryboard.storyboard in Resources */,
-				E3E5DAD716F2CE0500E7F3A6 /* FacebookSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +476,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Where2Meet\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Where2Meet/Where2Meet-Prefix.pch";
@@ -499,6 +496,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Where2Meet\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Where2Meet/Where2Meet-Prefix.pch";
