@@ -56,8 +56,23 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MeetingCell" forIndexPath:indexPath];
     
+    NSString *isAttendingText = @"New Invite!";
+    
     Meeting *meeting = [self.myMeetings objectAtIndex:indexPath.row];
+    if (meeting.isAttending)
+    {
+        if (meeting.isAttending.intValue == 1)
+        {
+            isAttendingText = @"Accepted";
+        }
+        else if (meeting.isAttending.intValue == 0)
+        {
+            isAttendingText = @"Declined";
+        }
+    }
+    
     cell.textLabel.text = meeting.title;
+    cell.detailTextLabel.text = isAttendingText;
     return cell;
 }
 

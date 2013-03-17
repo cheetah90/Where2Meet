@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -190,7 +190,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="2au-Ex-Tkm">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MeetingCell" textLabel="01z-To-k5P" style="IBUITableViewCellStyleDefault" id="ygK-AM-mSy">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MeetingCell" textLabel="01z-To-k5P" detailTextLabel="UJo-lO-6Kf" style="IBUITableViewCellStyleSubtitle" id="ygK-AM-mSy">
                                         <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -198,8 +198,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01z-To-k5P">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJo-lO-6Kf">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
@@ -242,7 +247,7 @@
             <objects>
                 <tableViewController id="LKA-Yt-RcP" customClass="SCAddMeetingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ROG-pZ-gAx">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -404,6 +409,19 @@
                             <outlet property="delegate" destination="LKA-Yt-RcP" id="xJN-lm-KMC"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="LNT-UD-xE2"/>
+                        <barButtonItem title="Delcine" id="OgH-SU-beS">
+                            <connections>
+                                <action selector="declineButtonPressed:" destination="LKA-Yt-RcP" id="3iC-bP-jqj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Accept" id="ON0-ds-tKj">
+                            <connections>
+                                <action selector="acceptButtonPressed:" destination="LKA-Yt-RcP" id="p52-7O-f3e"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Add Meeting" id="hl4-Kr-nqA">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dSu-ha-LeW">
                             <connections>
@@ -416,6 +434,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="endDateTimeLabel" destination="PUO-bR-SJG" id="IcE-BW-9lm"/>
                         <outlet property="startDateTimeLabel" destination="PvZ-lg-riI" id="pHM-k5-rEW"/>
@@ -477,6 +496,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="ShZ-Bf-HsG" id="3XJ-PK-yaK"/>
                     </connections>
@@ -504,6 +524,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Locations" id="0Yh-2M-s3e"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="Swc-27-h6E" id="mAk-ny-LYH"/>
                     </connections>
@@ -716,6 +737,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Start &amp; End" id="ZfL-uH-TKu"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="endDateLabel" destination="75V-iy-NNp" id="rUX-xf-gQD"/>
                         <outlet property="pickerView" destination="3OW-VR-f8j" id="MWR-hD-yro"/>
@@ -793,7 +815,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="SCAddMeetingViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCAddMeetingViewController.h"/>
             <relationships>
+                <relationship kind="action" name="acceptButtonPressed:"/>
                 <relationship kind="action" name="cancelPressed:"/>
+                <relationship kind="action" name="declineButtonPressed:"/>
                 <relationship kind="action" name="donePressed:"/>
                 <relationship kind="outlet" name="deleteButton" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="endDateTimeLabel" candidateClass="UILabel"/>

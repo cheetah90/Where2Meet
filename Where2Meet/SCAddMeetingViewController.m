@@ -35,15 +35,16 @@
     }
     else
     {
+        self.navigationController.toolbarHidden = NO;
         self.navigationController.navigationBar.topItem.title = @"Meeting Details";
         
         // If this is the meeting creator, give them the option to cancel the meeting
-        if (self.meetingModel.isCreator)
+        //if (self.meetingModel.isCreator)
         {
             
         }
         // If this user is not the creator if the meeting, give them the options to accept or decline the meeting
-        else
+        //else
         {
             
         }
@@ -107,6 +108,18 @@
 
 - (IBAction)cancelPressed:(id)sender
 {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)declineButtonPressed:(id)sender
+{
+    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId accepted:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)acceptButtonPressed:(id)sender
+{
+    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId accepted:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

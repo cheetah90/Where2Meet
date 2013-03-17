@@ -21,5 +21,7 @@
 - (IBAction)donePressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;
 
+- (IBAction)declineButtonPressed:(id)sender;
+- (IBAction)acceptButtonPressed:(id)sender;
 
 @end
