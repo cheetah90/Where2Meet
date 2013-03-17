@@ -23,7 +23,15 @@ static ServiceHub *serviceHub;
 // /facebookapi/register?user_id=my_user_Id&device_id=my_device_id
 - (BOOL)registerUser:(NSString *)facebookUserId withDeviceId:(NSString *)deviceId
 {
-    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/register?user_id=%@&device_id=%@", facebookUserId, deviceId];
+    NSString *registerUrl;
+    if (deviceId)
+    {
+        registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/register?user_id=%@&device_id=%@", facebookUserId, deviceId];
+    }
+    else
+    {
+        registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/register?user_id=%@", facebookUserId];
+    }
     
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:registerUrl]];
