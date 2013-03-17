@@ -50,7 +50,7 @@
         }
     }
     
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
     formatter.timeZone = destinationTimeZone;
     [formatter setDateStyle:NSDateFormatterLongStyle];
