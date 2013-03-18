@@ -114,5 +114,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)declineButtonPressed:(id)sender
+{
+    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId accepted:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (IBAction)acceptButtonPressed:(id)sender
+{
+    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId accepted:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
