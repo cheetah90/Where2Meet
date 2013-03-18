@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Meeting.h"
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface SCAddMeetingViewController : UITableViewController
+@interface SCAddMeetingViewController : UITableViewController <FBFriendPickerDelegate, FBGraphUser>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startDateTimeLabel;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeZoneLabel;
 @property (strong, nonatomic) Meeting *meetingModel;
 @property (weak, nonatomic) IBOutlet UITableViewCell *deleteButton;
+
 
 - (IBAction)donePressed:(id)sender;
 - (IBAction)cancelPressed:(id)sender;

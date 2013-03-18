@@ -10,6 +10,7 @@
 #import "SCStartAndEndViewController.h"
 #import "ServiceHub.h"
 
+
 @interface SCAddMeetingViewController ()
 
 @property (nonatomic) BOOL isNew;
@@ -18,9 +19,11 @@
 
 @implementation SCAddMeetingViewController
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -63,11 +66,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // If the cancel button was pressed
-    if (indexPath.row == 4)
-    {
-        // TODO: Add API call to cancel a meeting
+    switch (indexPath.row) {
+        default:
+            break;
     }
+
 }
 
 - (IBAction)donePressed:(id)sender
@@ -98,4 +101,6 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 @end

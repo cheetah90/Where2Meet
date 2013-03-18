@@ -41,7 +41,7 @@ static ServiceHub *serviceHub;
     return error ? NO : YES;
 }
 
-// /facebookapi/register?user_id=my_user_Id&device_id=my_device_id
+//  /facebookapi/friends?user_ids=userId1,userId2,userId3
 - (NSArray *)friendsWithApp:(NSArray *)friendsFacebookUserIds
 {
     NSMutableString *ids = [[NSMutableString alloc] init];
@@ -65,6 +65,7 @@ static ServiceHub *serviceHub;
     
     return [jsonParsed objectForKey:@"users"];
 }
+
 
 - (NSMutableString *)buildInviteeUserIds:(NSArray *)friendFacebookUserIds
 {
