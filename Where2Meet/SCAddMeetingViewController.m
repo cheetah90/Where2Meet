@@ -38,10 +38,22 @@
     }
     else
     {
+        self.navigationController.toolbarHidden = NO;
         self.navigationController.navigationBar.topItem.title = @"Meeting Details";
+        
+        // If this is the meeting creator, give them the option to cancel the meeting
+        //if (self.meetingModel.isCreator)
+        {
+            
+        }
+        // If this user is not the creator if the meeting, give them the options to accept or decline the meeting
+        //else
+        {
+            
+        }
     }
     
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
     formatter.timeZone = destinationTimeZone;
     [formatter setDateStyle:NSDateFormatterLongStyle];

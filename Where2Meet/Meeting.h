@@ -10,6 +10,8 @@
 
 @interface Meeting : NSObject
 
+@property (nonatomic) BOOL isCreator;
+@property (nonatomic) NSNumber *isAttending;
 @property (nonatomic) int meetingId;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic) int startDate;

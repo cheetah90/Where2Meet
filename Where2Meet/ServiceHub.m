@@ -141,6 +141,21 @@ static ServiceHub *serviceHub;
     return [parser parseArray:[jsonParsed objectForKey:@"meetings"]];
 }
 
+- (BOOL)respondToMeetingInvite:(int)meetingId accepted:(BOOL)accepted
+{
+    NSString *acceptedValue = accepted ? @"True" : @"False";
+    
+    // TODO: Get the real geo code for this user...
+    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/respond_to_meeting_invite?user_id=%@&meeting_id=%d&geo_code=%@&accepted=%@", [self userId], meetingId, @"1,2", acceptedValue];
+    
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    [NSJSONSerialization JSONObjectWithData:data
+                                    options:NSJSONReadingMutableContainers error:&error];
+    
+    return error ? NO : YES;
+}
+
 - (void)setUserId:(NSString *)userId
 {
     NSUserDefaults *localStore = [NSUserDefaults standardUserDefaults];
