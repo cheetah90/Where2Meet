@@ -34,7 +34,7 @@
 {
     [super viewWillAppear:animated];
     
-    if (!self.meetingModel)
+    if (!self.meetingModel || self.isNew)
     {
         self.isNew = YES;
         self.meetingModel = [[Meeting alloc] init];
@@ -56,6 +56,12 @@
     self.endDateTimeLabel.text = [formatter stringFromDate:self.meetingModel.endDateTime];
     self.timeZoneLabel.text = @"Chicago"; // TODO: Add in timezone properly
     self.titleLabel.text = self.meetingModel.title;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (NSString *)deviceLocation
