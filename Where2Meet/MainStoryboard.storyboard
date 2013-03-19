@@ -477,6 +477,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgP-Mi-ycF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -792,6 +793,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="performLogin:"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
         <class className="SCMyMeetingsViewController" superclassName="UIViewController">

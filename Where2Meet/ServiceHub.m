@@ -87,6 +87,7 @@ static ServiceHub *serviceHub;
                  withStartDate:(NSDate *)startDateTime
                    withEndDate:(NSDate *)endDateTime
                    withFriends:(NSArray *)friendFacebookUserIds
+                   withGeoCode:(NSString *)geoCode
 {
     
     NSString* escapedTitle = [title stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -95,7 +96,7 @@ static ServiceHub *serviceHub;
     NSMutableString *inviteeUserIds = [self buildInviteeUserIds:friendFacebookUserIds];
     
     // TODO: actually pass along a comma delimited string for the geocode once we get that from location services.
-    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/create_meeting?user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&geocode=%@&invitee_user_ids=%@", [self userId], escapedTitle, startTime, endTime, @"0,0", inviteeUserIds];
+    NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/create_meeting?user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&geocode=%@&invitee_user_ids=%@", [self userId], escapedTitle, startTime, endTime, geoCode, inviteeUserIds];
     
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:registerUrl]];
@@ -141,12 +142,14 @@ static ServiceHub *serviceHub;
     return [parser parseArray:[jsonParsed objectForKey:@"meetings"]];
 }
 
-- (BOOL)respondToMeetingInvite:(int)meetingId accepted:(BOOL)accepted
+- (BOOL)respondToMeetingInvite:(int)meetingId
+                      accepted:(BOOL)accepted
+                   withGeoCode:(NSString *)geoCode
 {
     NSString *acceptedValue = accepted ? @"True" : @"False";
     
     // TODO: Get the real geo code for this user...
-    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/respond_to_meeting_invite?user_id=%@&meeting_id=%d&geo_code=%@&accepted=%@", [self userId], meetingId, @"1,2", acceptedValue];
+    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/respond_to_meeting_invite?user_id=%@&meeting_id=%d&geo_code=%@&accepted=%@", [self userId], meetingId, geoCode, acceptedValue];
     
     NSError *error;
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];

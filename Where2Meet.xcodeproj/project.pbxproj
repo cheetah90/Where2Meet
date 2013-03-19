@@ -29,10 +29,11 @@
 		CA3C39A516E99956009B5D59 /* DCSimpleConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C399216E99956009B5D59 /* DCSimpleConverter.m */; };
 		CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */; };
 		CA4A889116F4D0100078DC44 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4A889016F4D0100078DC44 /* FacebookSDK.framework */; };
+		CA8E19E916F7E92D00ACE4D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8E19E816F7E92D00ACE4D8 /* CoreLocation.framework */; };
+		CA8E19EB16F7E9EA00ACE4D8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */; };
 		CA9F9D9816F1FF7A00DFE39C /* SCLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F9D9716F1FF7A00DFE39C /* SCLocationsViewController.m */; };
 		CA9F9D9B16F2021700DFE39C /* LocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F9D9A16F2021700DFE39C /* LocationAnnotation.m */; };
 		CA9F9D9E16F202C400DFE39C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA9F9D9D16F202C400DFE39C /* MapKit.framework */; };
-		CAC51C3A16ED12FB000F8FBE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */; };
 		CAC51C3D16ED1753000F8FBE /* SCLaunchControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C3C16ED1753000F8FBE /* SCLaunchControllerViewController.m */; };
 		CAC51C4016ED287D000F8FBE /* SCMyMeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C3F16ED287D000F8FBE /* SCMyMeetingsViewController.m */; };
 		CAC51C4616ED3802000F8FBE /* SCAddMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */; };
@@ -99,12 +100,13 @@
 		CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KeyValueObjectMapping-Info.plist"; path = "Where2Meet/KeyValueObjectMapping-Info.plist"; sourceTree = "<group>"; };
 		CA3C39A716E99975009B5D59 /* KeyValueObjectMapping-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KeyValueObjectMapping-Prefix.pch"; path = "Where2Meet/KeyValueObjectMapping-Prefix.pch"; sourceTree = "<group>"; };
 		CA4A889016F4D0100078DC44 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Where2Meet/FacebookSDK.framework; sourceTree = "<group>"; };
+		CA8E19E816F7E92D00ACE4D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CA9F9D9616F1FF7A00DFE39C /* SCLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocationsViewController.h; sourceTree = "<group>"; };
 		CA9F9D9716F1FF7A00DFE39C /* SCLocationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocationsViewController.m; sourceTree = "<group>"; };
 		CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAnnotation.h; sourceTree = "<group>"; };
 		CA9F9D9A16F2021700DFE39C /* LocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAnnotation.m; sourceTree = "<group>"; };
 		CA9F9D9D16F202C400DFE39C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CAC51C3B16ED1753000F8FBE /* SCLaunchControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLaunchControllerViewController.h; sourceTree = "<group>"; };
 		CAC51C3C16ED1753000F8FBE /* SCLaunchControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLaunchControllerViewController.m; sourceTree = "<group>"; };
 		CAC51C3E16ED287D000F8FBE /* SCMyMeetingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMyMeetingsViewController.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA8E19E916F7E92D00ACE4D8 /* CoreLocation.framework in Frameworks */,
 				CA9F9D9E16F202C400DFE39C /* MapKit.framework in Frameworks */,
 				E32BA8C816E5565D00E5DB20 /* Accounts.framework in Frameworks */,
 				E32BA8C616E5565100E5DB20 /* Social.framework in Frameworks */,
@@ -242,10 +245,11 @@
 		E32BA89B16E5556F00E5DB20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CA4A889016F4D0100078DC44 /* FacebookSDK.framework */,
 				E32BA8C716E5565D00E5DB20 /* Accounts.framework */,
 				E32BA8C316E5564A00E5DB20 /* AdSupport.framework */,
 				E32BA8A016E5556F00E5DB20 /* CoreGraphics.framework */,
+				CA8E19E816F7E92D00ACE4D8 /* CoreLocation.framework */,
+				CA4A889016F4D0100078DC44 /* FacebookSDK.framework */,
 				E32BA89E16E5556F00E5DB20 /* Foundation.framework */,
 				CA9F9D9D16F202C400DFE39C /* MapKit.framework */,
 				E32BA8C516E5565100E5DB20 /* Social.framework */,
@@ -257,12 +261,11 @@
 		E32BA8A216E5556F00E5DB20 /* Where2Meet */ = {
 			isa = PBXGroup;
 			children = (
-				CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */,
+				CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */,
 				E3AC9DA816F68F9A009B750E /* SCInviteeViewController.h */,
 				E3AC9DA916F68F9A009B750E /* SCInviteeViewController.m */,
 				CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */,
 				CA9F9D9A16F2021700DFE39C /* LocationAnnotation.m */,
-				CAC51C3916ED12FB000F8FBE /* MainStoryboard.storyboard */,
 				CAC51C4416ED3802000F8FBE /* SCAddMeetingViewController.h */,
 				CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */,
 				E32BA8AB16E5556F00E5DB20 /* SCAppDelegate.h */,
@@ -356,7 +359,7 @@
 				E32BA8B116E5556F00E5DB20 /* Default@2x.png in Resources */,
 				E32BA8B316E5556F00E5DB20 /* Default-568h@2x.png in Resources */,
 				CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */,
-				CAC51C3A16ED12FB000F8FBE /* MainStoryboard.storyboard in Resources */,
+				CA8E19EB16F7E9EA00ACE4D8 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

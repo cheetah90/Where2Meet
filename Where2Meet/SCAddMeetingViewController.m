@@ -9,21 +9,25 @@
 #import "SCAddMeetingViewController.h"
 #import "SCStartAndEndViewController.h"
 #import "ServiceHub.h"
-
+#import <CoreLocation/CoreLocation.h>
 
 @interface SCAddMeetingViewController ()
 
 @property (nonatomic) BOOL isNew;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
 @implementation SCAddMeetingViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,17 +44,6 @@
     {
         self.navigationController.toolbarHidden = NO;
         self.navigationController.navigationBar.topItem.title = @"Meeting Details";
-        
-        // If this is the meeting creator, give them the option to cancel the meeting
-        //if (self.meetingModel.isCreator)
-        {
-            
-        }
-        // If this user is not the creator if the meeting, give them the options to accept or decline the meeting
-        //else
-        {
-            
-        }
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -63,6 +56,11 @@
     self.endDateTimeLabel.text = [formatter stringFromDate:self.meetingModel.endDateTime];
     self.timeZoneLabel.text = @"Chicago"; // TODO: Add in timezone properly
     self.titleLabel.text = self.meetingModel.title;
+}
+
+- (NSString *)deviceLocation
+{
+    return [NSString stringWithFormat:@"%f,%f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -95,7 +93,8 @@
         [[ServiceHub current] createMeetingWithTitle:self.meetingModel.title
                                        withStartDate:self.meetingModel.startDateTime
                                          withEndDate:self.meetingModel.endDateTime
-                                         withFriends:self.meetingModel.invitees];
+                                         withFriends:self.meetingModel.invitees
+                                         withGeoCode:[self deviceLocation]];
     }
     else
     {
@@ -116,13 +115,19 @@
 
 - (IBAction)declineButtonPressed:(id)sender
 {
-    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId accepted:NO];
+    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId
+                                        accepted:NO
+                                     withGeoCode:[self deviceLocation]];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)acceptButtonPressed:(id)sender
 {
-    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId accepted:YES];
+    [[ServiceHub current] respondToMeetingInvite:self.meetingModel.meetingId
+                                        accepted:YES
+                                     withGeoCode:[self deviceLocation]];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

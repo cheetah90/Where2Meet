@@ -26,7 +26,8 @@
 - (BOOL)createMeetingWithTitle:(NSString *)title
                  withStartDate:(NSDate *)startDateTime
                    withEndDate:(NSDate *)endDateTime
-                   withFriends:(NSArray *)friendFacebookUserIds;
+                   withFriends:(NSArray *)friendFacebookUserIds
+                   withGeoCode:(NSString *)geoCode;
 
 - (BOOL)updateMeetingWithMeetingId:(int)meetingId
                          withTitle:(NSString *)title
@@ -37,6 +38,7 @@
 - (NSArray *)myMeetings;
 
 - (BOOL)respondToMeetingInvite:(int)meetingId
-                      accepted:(BOOL)accepted;
+                      accepted:(BOOL)accepted
+                   withGeoCode:(NSString *)geoCode;
 
 @end
