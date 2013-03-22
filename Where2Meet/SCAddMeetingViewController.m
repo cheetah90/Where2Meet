@@ -189,6 +189,8 @@
                                      withGeoCode:[self deviceLocation]];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
 
 - (BOOL)friendPickerViewController:(FBFriendPickerViewController *)friendPicker

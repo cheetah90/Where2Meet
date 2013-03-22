@@ -38,6 +38,7 @@
 		CAC51C4016ED287D000F8FBE /* SCMyMeetingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C3F16ED287D000F8FBE /* SCMyMeetingsViewController.m */; };
 		CAC51C4616ED3802000F8FBE /* SCAddMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */; };
 		CAC51C4916ED3844000F8FBE /* SCStartAndEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC51C4816ED3844000F8FBE /* SCStartAndEndViewController.m */; };
+		E31A142316FCC4DB006F2D90 /* SCShareStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E31A142216FCC4DB006F2D90 /* SCShareStoryViewController.m */; };
 		E32BA89D16E5556F00E5DB20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA89C16E5556F00E5DB20 /* UIKit.framework */; };
 		E32BA89F16E5556F00E5DB20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA89E16E5556F00E5DB20 /* Foundation.framework */; };
 		E32BA8A116E5556F00E5DB20 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8A016E5556F00E5DB20 /* CoreGraphics.framework */; };
@@ -115,6 +116,8 @@
 		CAC51C4516ED3802000F8FBE /* SCAddMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAddMeetingViewController.m; sourceTree = "<group>"; };
 		CAC51C4716ED3843000F8FBE /* SCStartAndEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCStartAndEndViewController.h; sourceTree = "<group>"; };
 		CAC51C4816ED3844000F8FBE /* SCStartAndEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCStartAndEndViewController.m; sourceTree = "<group>"; };
+		E31A142116FCC4DB006F2D90 /* SCShareStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCShareStoryViewController.h; sourceTree = "<group>"; };
+		E31A142216FCC4DB006F2D90 /* SCShareStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCShareStoryViewController.m; sourceTree = "<group>"; };
 		E32BA89916E5556F00E5DB20 /* Where2Meet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where2Meet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E32BA89C16E5556F00E5DB20 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E32BA89E16E5556F00E5DB20 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -262,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */,
+				E31A142116FCC4DB006F2D90 /* SCShareStoryViewController.h */,
+				E31A142216FCC4DB006F2D90 /* SCShareStoryViewController.m */,
 				E3AC9DA816F68F9A009B750E /* SCInviteeViewController.h */,
 				E3AC9DA916F68F9A009B750E /* SCInviteeViewController.m */,
 				CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */,
@@ -401,6 +406,7 @@
 				CA9F9D9816F1FF7A00DFE39C /* SCLocationsViewController.m in Sources */,
 				CA9F9D9B16F2021700DFE39C /* LocationAnnotation.m in Sources */,
 				E3AC9DAA16F68F9A009B750E /* SCInviteeViewController.m in Sources */,
+				E31A142316FCC4DB006F2D90 /* SCShareStoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
