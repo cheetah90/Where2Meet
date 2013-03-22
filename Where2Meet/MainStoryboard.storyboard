@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AqD-Wd-zqd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -376,7 +376,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="DUA-e9-qPZ" kind="push" id="Lua-z9-bsw"/>
+                                            <segue destination="DUA-e9-qPZ" kind="push" identifier="SegueInviteeViewController" id="Lua-z9-bsw"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="aJb-0g-LZn" style="IBUITableViewCellStyleDefault" id="itn-vE-4ql">
@@ -437,6 +437,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="endDateTimeLabel" destination="PUO-bR-SJG" id="IcE-BW-9lm"/>
+                        <outlet property="locationbutton" destination="itn-vE-4ql" id="bCO-ee-4LZ"/>
                         <outlet property="startDateTimeLabel" destination="PvZ-lg-riI" id="pHM-k5-rEW"/>
                         <outlet property="timeZoneLabel" destination="JWZ-O9-EH3" id="YX3-Ot-EbZ"/>
                         <outlet property="titleLabel" destination="mHr-v7-dJb" id="bOt-2o-Irf"/>
@@ -753,75 +754,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="2840" y="243"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FBProfilePictureView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBProfilePictureView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SCAddMeetingViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCAddMeetingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="acceptButtonPressed:"/>
-                <relationship kind="action" name="cancelPressed:"/>
-                <relationship kind="action" name="declineButtonPressed:"/>
-                <relationship kind="action" name="donePressed:"/>
-                <relationship kind="outlet" name="deleteButton" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="endDateTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startDateTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeZoneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SCInviteeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCInviteeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addInvitee:"/>
-            </relationships>
-        </class>
-        <class className="SCLaunchControllerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLaunchControllerViewController.h"/>
-        </class>
-        <class className="SCLocationsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLocationsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="SCLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="performLogin:"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="SCMyMeetingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCMyMeetingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addMeeting:"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SCStartAndEndViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCStartAndEndViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="pickerValueChanged:"/>
-                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pickerView" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeZoneLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SCViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SCViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="inviteFBFriends:"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userProfileImage" candidateClass="FBProfilePictureView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

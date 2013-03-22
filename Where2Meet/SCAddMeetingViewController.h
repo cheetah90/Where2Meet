@@ -10,8 +10,9 @@
 #import "Meeting.h"
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface SCAddMeetingViewController : UITableViewController <FBFriendPickerDelegate, FBGraphUser>
+@interface SCAddMeetingViewController : UITableViewController <FBFriendPickerDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableViewCell *locationbutton;
 @property (weak, nonatomic) IBOutlet UITextField *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *startDateTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateTimeLabel;

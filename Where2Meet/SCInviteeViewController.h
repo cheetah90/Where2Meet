@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface SCInviteeViewController : UITableViewController <FBFriendPickerDelegate>
-- (IBAction)addInvitee:(id)sender;
-
+@interface SCInviteeViewController : UITableViewController
 
 @end
