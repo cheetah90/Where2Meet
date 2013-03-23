@@ -30,8 +30,18 @@
 
 @implementation SCAddMeetingViewController
 @synthesize friendwithApp=_friendwithApp;
-@synthesize inviteesFBData= _inviteesFBData;
-@synthesize listofPOIs= _listofPOIs;
+
+- (NSMutableArray *)listofPOIs
+{
+    if (!_listofPOIs) _listofPOIs = [[NSMutableArray alloc] init];
+    return _listofPOIs;
+}
+
+- (NSMutableArray *)inviteesFBData
+{
+    if (!_inviteesFBData) _inviteesFBData = [[NSMutableArray alloc] init];
+    return _inviteesFBData;
+}
 
 - (void)viewDidLoad
 {
@@ -41,28 +51,6 @@
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
-    
-    /*
-     Instantiate an inviteesNames array (NSMutableArray), if not empty, empty that.
-    */
-    if (self.inviteesFBData== nil) {
-        self.inviteesFBData = [[NSMutableArray alloc] init];
-    }
-    else
-    {
-        [self.inviteesFBData removeAllObjects];
-    }
-    
-    /*
-     Instantiate an inviteesNames array (NSMutableArray), if not empty, empty that.
-     */
-    if (self.listofPOIs== nil) {
-        self.listofPOIs = [[NSMutableArray alloc] init];
-    }
-    else
-    {
-        [self.listofPOIs removeAllObjects];
-    }
     
     
     
@@ -126,9 +114,6 @@
                  }
              }];
         }
-    
-    
-        
     }
 }
 
