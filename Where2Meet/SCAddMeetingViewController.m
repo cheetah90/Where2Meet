@@ -11,6 +11,7 @@
 #import "SCInviteeViewController.h"
 #import "ServiceHub.h"
 #import <CoreLocation/CoreLocation.h>
+#import "SCLocationsViewController.h"
 
 @interface SCAddMeetingViewController ()
 
@@ -145,12 +146,17 @@
     }
     
     //Segue to invitees list view (SCInviteeViewController)
-    if ([segue.identifier isEqualToString:@"SegueInviteeViewController"])
+    else if ([segue.identifier isEqualToString:@"SegueInviteeViewController"])
     {
         SCInviteeViewController *controller = segue.destinationViewController;
         controller.inviteesFBData = self.inviteesFBData;
     }
     
+    else if ([segue.identifier isEqualToString:@"AddMeetingToLocations"])
+    {
+        SCLocationsViewController *controller = segue.destinationViewController;
+        controller.meetingModel = self.meetingModel;
+    }    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

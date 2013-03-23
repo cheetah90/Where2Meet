@@ -9,6 +9,9 @@
 #import "ServiceHub.h"
 #import "DCKeyValueObjectMapping.h"
 #import "Meeting.h"
+#import "DCArrayMapping.h"
+#import "Invitee.h"
+#import "DCParserConfiguration.h"
 
 @implementation ServiceHub
 
@@ -48,7 +51,7 @@ static ServiceHub *serviceHub;
     
     for (NSString *facebookUserId in friendsFacebookUserIds)
     {
-        if (![facebookUserId isEqualToString:@""])
+        if (![ids isEqualToString:@""])
         {
             [ids appendString:@","];
         }
@@ -56,10 +59,19 @@ static ServiceHub *serviceHub;
         [ids appendString:facebookUserId];
     }
     
-    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/friends?user_ids=%@", ids];
+    NSString* content = [@"user_ids=" stringByAppendingString:ids];
+    NSURL* url = [NSURL URLWithString:@"http://wheretomeet.azurewebsites.net/facebookapi/friends"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[content dataUsingEncoding:NSASCIIStringEncoding]];
     
     NSError *error;
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    //NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/friends?user_ids=%@", ids];
+    
+    
+    //NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     NSDictionary *jsonParsed = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers error:&error];
     
@@ -138,7 +150,13 @@ static ServiceHub *serviceHub;
     NSDictionary *jsonParsed = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers error:&error];
     
-    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[Meeting class]];
+    DCArrayMapping *mapper = [DCArrayMapping mapperForClassElements:[Invitee class] forAttribute:@"inviteeDetails" onClass:[Meeting class]];
+    
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    [config addArrayMapper:mapper];
+    
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[Meeting class]
+                                       andConfiguration:config];
     return [parser parseArray:[jsonParsed objectForKey:@"meetings"]];
 }
 

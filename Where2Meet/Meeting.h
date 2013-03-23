@@ -25,5 +25,6 @@
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSMutableArray *invitees;
+@property (nonatomic, strong) NSArray *inviteeDetails;
 
 @end

@@ -29,6 +29,7 @@
 		CA3C39A516E99956009B5D59 /* DCSimpleConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3C399216E99956009B5D59 /* DCSimpleConverter.m */; };
 		CA3C39A816E99975009B5D59 /* KeyValueObjectMapping-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */; };
 		CA4A889116F4D0100078DC44 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4A889016F4D0100078DC44 /* FacebookSDK.framework */; };
+		CA80AD2316FE4E9E0049D918 /* Invitee.m in Sources */ = {isa = PBXBuildFile; fileRef = CA80AD2216FE4E9E0049D918 /* Invitee.m */; };
 		CA8E19E916F7E92D00ACE4D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA8E19E816F7E92D00ACE4D8 /* CoreLocation.framework */; };
 		CA8E19EB16F7E9EA00ACE4D8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */; };
 		CA9F9D9816F1FF7A00DFE39C /* SCLocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9F9D9716F1FF7A00DFE39C /* SCLocationsViewController.m */; };
@@ -101,6 +102,8 @@
 		CA3C39A616E99975009B5D59 /* KeyValueObjectMapping-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "KeyValueObjectMapping-Info.plist"; path = "Where2Meet/KeyValueObjectMapping-Info.plist"; sourceTree = "<group>"; };
 		CA3C39A716E99975009B5D59 /* KeyValueObjectMapping-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "KeyValueObjectMapping-Prefix.pch"; path = "Where2Meet/KeyValueObjectMapping-Prefix.pch"; sourceTree = "<group>"; };
 		CA4A889016F4D0100078DC44 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = Where2Meet/FacebookSDK.framework; sourceTree = "<group>"; };
+		CA80AD2116FE4E9E0049D918 /* Invitee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invitee.h; sourceTree = "<group>"; };
+		CA80AD2216FE4E9E0049D918 /* Invitee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invitee.m; sourceTree = "<group>"; };
 		CA8E19E816F7E92D00ACE4D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CA9F9D9616F1FF7A00DFE39C /* SCLocationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocationsViewController.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 		CA3C396716E996A7009B5D59 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CA80AD2116FE4E9E0049D918 /* Invitee.h */,
+				CA80AD2216FE4E9E0049D918 /* Invitee.m */,
 				CA3C396B16E996C7009B5D59 /* ServiceHub.h */,
 				CA3C396C16E996C7009B5D59 /* ServiceHub.m */,
 				CA3C396816E996B6009B5D59 /* Meeting.h */,
@@ -407,6 +412,7 @@
 				CA9F9D9B16F2021700DFE39C /* LocationAnnotation.m in Sources */,
 				E3AC9DAA16F68F9A009B750E /* SCInviteeViewController.m in Sources */,
 				E3D3DC5116FE13A900710CB7 /* SCInviteeProfileViewController.m in Sources */,
+				CA80AD2316FE4E9E0049D918 /* Invitee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
