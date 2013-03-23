@@ -7,12 +7,14 @@
 //
 
 #import "SCInviteeViewController.h"
+#import "SCInviteeProfileViewController.h"
 #import "ServiceHub.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface SCInviteeViewController ()
 <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) FBFriendPickerViewController *friendPickerController;
+@property (strong, nonatomic) FBGraphObject* currentUserProfile;
 
 @end
 
@@ -20,6 +22,7 @@
 
 @synthesize friendPickerController = _friendPickerController;
 @synthesize inviteesFBData= _inviteesFBData;
+@synthesize currentUserProfile= _currentUserProfile;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -120,8 +123,21 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    self.currentUserProfile = [[self inviteesFBData] objectAtIndex:indexPath.row];
+    
+    [self performSegueWithIdentifier:@"InviteesList2Profile" sender:self.currentUserProfile];
+    
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"InviteesList2Profile"])
+    {
+        SCInviteeProfileViewController *controller = segue.destinationViewController;
+        controller.currentUserProfile = self.currentUserProfile;
+    }
+}
 
 - (void)dealloc
 {

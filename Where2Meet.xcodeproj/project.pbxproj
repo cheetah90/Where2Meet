@@ -53,6 +53,7 @@
 		E32BA8C816E5565D00E5DB20 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E32BA8C716E5565D00E5DB20 /* Accounts.framework */; };
 		E32BA8CC16E5586200E5DB20 /* SCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */; };
 		E3AC9DAA16F68F9A009B750E /* SCInviteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AC9DA916F68F9A009B750E /* SCInviteeViewController.m */; };
+		E3D3DC5116FE13A900710CB7 /* SCInviteeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D3DC5016FE13A900710CB7 /* SCInviteeProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +138,8 @@
 		E32BA8CA16E5586200E5DB20 /* SCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoginViewController.m; sourceTree = "<group>"; };
 		E3AC9DA816F68F9A009B750E /* SCInviteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInviteeViewController.h; sourceTree = "<group>"; };
 		E3AC9DA916F68F9A009B750E /* SCInviteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInviteeViewController.m; sourceTree = "<group>"; };
+		E3D3DC4F16FE13A900710CB7 /* SCInviteeProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInviteeProfileViewController.h; sourceTree = "<group>"; };
+		E3D3DC5016FE13A900710CB7 /* SCInviteeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInviteeProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */,
+				E3D3DC4F16FE13A900710CB7 /* SCInviteeProfileViewController.h */,
+				E3D3DC5016FE13A900710CB7 /* SCInviteeProfileViewController.m */,
 				E3AC9DA816F68F9A009B750E /* SCInviteeViewController.h */,
 				E3AC9DA916F68F9A009B750E /* SCInviteeViewController.m */,
 				CA9F9D9916F2021700DFE39C /* LocationAnnotation.h */,
@@ -401,6 +406,7 @@
 				CA9F9D9816F1FF7A00DFE39C /* SCLocationsViewController.m in Sources */,
 				CA9F9D9B16F2021700DFE39C /* LocationAnnotation.m in Sources */,
 				E3AC9DAA16F68F9A009B750E /* SCInviteeViewController.m in Sources */,
+				E3D3DC5116FE13A900710CB7 /* SCInviteeProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
