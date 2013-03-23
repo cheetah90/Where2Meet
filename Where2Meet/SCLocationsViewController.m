@@ -46,7 +46,7 @@
         {
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(invitee.latitude.doubleValue, invitee.longitude.doubleValue);
         
-            [self showMarkerWithTitle:invitee.facebookUserId withSubtitle:@"subtitle" AtLocation:coord];
+            [self showMarkerWithTitle:invitee.facebookUserId withSubtitle:@"subtitle" AtLocation:coord pinColor:MKPinAnnotationColorGreen];
         }
     }
     
@@ -55,7 +55,7 @@
     
     for (eachPlace in self.listofPOIs) {
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(eachPlace.location.latitude.doubleValue, eachPlace.location.longitude.doubleValue);
-        [self showMarkerWithTitle:eachPlace.id withSubtitle:eachPlace.name AtLocation:coord];
+        [self showMarkerWithTitle:eachPlace.id withSubtitle:eachPlace.name AtLocation:coord pinColor:MKPinAnnotationColorRed];
     }
 
 }
@@ -70,9 +70,9 @@
     [self.mapView setRegion:viewRegion animated:YES];
 }
 
-- (void) showMarkerWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle AtLocation:(CLLocationCoordinate2D)coordinate
+- (void) showMarkerWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle AtLocation:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor
 {
-    LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:title subtitle:subtitle coordinate:coordinate];
+    LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:title subtitle:subtitle coordinate:coordinate pinColor:pinColor];
     
     [self.mapView addAnnotation:annotation];
 }
@@ -85,10 +85,12 @@
         return nil;
     }
     
+    LocationAnnotation *locationAnnotation = (LocationAnnotation *)annotation;
+    
     MKPinAnnotationView *pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
     if (!pinView) {
         pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinView"];
-        pinView.pinColor = MKPinAnnotationColorRed;
+        pinView.pinColor = locationAnnotation.pinColor;
         pinView.animatesDrop = YES;
         pinView.canShowCallout = YES;
         

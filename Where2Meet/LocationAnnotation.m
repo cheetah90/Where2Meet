@@ -18,12 +18,13 @@
 
 @implementation LocationAnnotation
 
-- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate
+- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor
 {
     if (self = [super init]) {
         self.localTitle = title;
         self.localSubtitle = subtitle;
         self.localCoordinate = coordinate;
+        self.pinColor = pinColor;
     }
     return self;
 }

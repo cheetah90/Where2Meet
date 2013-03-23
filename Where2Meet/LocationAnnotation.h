@@ -11,6 +11,8 @@
 
 @interface LocationAnnotation : NSObject <MKAnnotation>
 
-- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate;
+- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor;
+
+@property (nonatomic) MKPinAnnotationColor pinColor;
 
 @end
