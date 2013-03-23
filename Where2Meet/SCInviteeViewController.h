@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "Meeting.h"
 
 @interface SCInviteeViewController : UITableViewController
-
+@property(strong, nonatomic) Meeting* meetingModel;
 @end

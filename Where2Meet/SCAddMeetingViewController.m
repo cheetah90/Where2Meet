@@ -8,6 +8,7 @@
 
 #import "SCAddMeetingViewController.h"
 #import "SCStartAndEndViewController.h"
+#import "SCInviteeViewController.h"
 #import "ServiceHub.h"
 #import <CoreLocation/CoreLocation.h>
 
@@ -102,11 +103,20 @@
 {
     self.meetingModel.title = self.titleLabel.text;
     
+    //Segue to Time selector view (SCStartAndEndViewController)
     if ([segue.identifier isEqualToString:@"AddMeetingToStartAndEnd"])
     {
         SCStartAndEndViewController *controller = segue.destinationViewController;
         controller.meetingModel = self.meetingModel;
     }
+    
+    //Segue to invitees list view (SCInviteeViewController)
+    if ([segue.identifier isEqualToString:@"SegueInviteeViewController"])
+    {
+        SCInviteeViewController *controller = segue.destinationViewController;
+        controller.meetingModel = self.meetingModel;
+    }
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,6 +124,11 @@
     switch (indexPath.row) {
         case 0:
             if (self.isNew) {
+                
+                /*
+                If this is a new meeting, show friends selector
+                */
+                
                 if (!self.friendPickerController) {
                     self.friendPickerController = [[FBFriendPickerViewController alloc]
                                                    initWithNibName:nil bundle:nil];
@@ -133,6 +148,15 @@
                 //Load data
                 [self.friendPickerController loadData];
                 [self presentViewController:self.friendPickerController animated:YES completion:nil];
+            }
+            else
+            {
+                /*
+                 If this is an existing meeting, show invitees list
+                 */
+                
+                [self performSegueWithIdentifier:@"SegueInviteeViewController" sender:self.meetingModel];
+                
             }
             
         
@@ -188,7 +212,11 @@
                                         accepted:YES
                                      withGeoCode:[self deviceLocation]];
     
+    //Initiate a Feed Dialog to publish story
+    [self InitiateFeedDialogtoPublishStory];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
     
     
 }
@@ -241,5 +269,73 @@
     }
     return YES;
 }
+
+
+/**
+ * A function for parsing URL parameters.
+ */
+- (NSDictionary*)parseURLParams:(NSString *)query {
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *pair in pairs) {
+        NSArray *kv = [pair componentsSeparatedByString:@"="];
+        NSString *val =
+        [[kv objectAtIndex:1]
+         stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [params setObject:val forKey:[kv objectAtIndex:0]];
+    }
+    return params;
+}
+
+- (void) InitiateFeedDialogtoPublishStory
+{
+    // Put together the dialog parameters
+    NSMutableDictionary *params =
+    [NSMutableDictionary dictionaryWithObjectsAndKeys:
+     @"Where2Meet", @"name",
+     @"Organize a friends gathering, manage contacts with participants, search for optimal places and seek consensus via Where2Meet!", @"caption",
+     @"Where2Meet is a location-based social application that enables you create meeting, invite friends, search for optimal venue and reach consensus on where to go!", @"description",
+     @"https://developers.facebook.com/ios", @"link", //Pending to be changed
+     @"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png", @"picture", // Pending to be changed
+     nil];
+    
+    // Invoke the dialog
+    [FBWebDialogs presentFeedDialogModallyWithSession:nil
+                                           parameters:params
+                                              handler:
+     ^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+         if (error) {
+             // Error launching the dialog or publishing a story.
+             NSLog(@"Error publishing story.");
+         } else {
+             if (result == FBWebDialogResultDialogNotCompleted) {
+                 // User clicked the "x" icon
+                 NSLog(@"User canceled story publishing.");
+             } else {
+                 // Handle the publish feed callback
+                 NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                 if (![urlParams valueForKey:@"post_id"]) {
+                     // User clicked the Cancel button
+                     NSLog(@"User canceled story publishing.");
+                 } else {
+                     // User clicked the Share button
+                     NSString *msg = [NSString stringWithFormat:
+                                      @"Posted story, id: %@",
+                                      [urlParams valueForKey:@"post_id"]];
+                     NSLog(@"%@", msg);
+                     // Show the result in an alert
+                     [[[UIAlertView alloc] initWithTitle:@"Result"
+                                                 message:msg
+                                                delegate:nil
+                                       cancelButtonTitle:@"OK!"
+                                       otherButtonTitles:nil]
+                      show];
+                 }
+             }
+         }
+     }];
+}
+
 
 @end

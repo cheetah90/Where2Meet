@@ -10,6 +10,7 @@
 #import "ServiceHub.h"
 
 @interface SCInviteeViewController ()
+<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) FBFriendPickerViewController *friendPickerController;
 
 
@@ -34,13 +35,17 @@
     [super viewDidLoad];
 
     self.friendPickerController=nil;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-        
+    NSMutableArray* inviteesList= self.meetingModel.invitees;
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,8 +65,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    
+    
+    
     return 0;
 }
 
@@ -132,7 +139,6 @@
 {
     _friendPickerController.delegate = nil;
 }
-
 
 
 @end
