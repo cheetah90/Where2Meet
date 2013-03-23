@@ -8,18 +8,18 @@
 
 #import "SCInviteeViewController.h"
 #import "ServiceHub.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SCInviteeViewController ()
 <UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) FBFriendPickerViewController *friendPickerController;
-
 
 @end
 
 @implementation SCInviteeViewController
 
 @synthesize friendPickerController = _friendPickerController;
-
+@synthesize inviteesFBData= _inviteesFBData;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,12 +40,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSMutableArray* inviteesList= self.meetingModel.invitees;
-    
-    
-    
+    //self.navigationItem.rightBarButtonItem = self.editButtonItem;    
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,29 +51,22 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    
-    
-    
-    return 0;
+    return [self.inviteesFBData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"InviteeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    NSString* currentUserName= [[self.inviteesFBData objectAtIndex:indexPath.row] objectForKey:@"name"];
+
+    cell.textLabel.text = currentUserName;
+    cell.detailTextLabel.text = @"Add awareness";
     return cell;
 }
 
@@ -139,6 +127,9 @@
 {
     _friendPickerController.delegate = nil;
 }
+
+
+
 
 
 @end

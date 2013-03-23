@@ -11,5 +11,7 @@
 #import "Meeting.h"
 
 @interface SCInviteeViewController : UITableViewController
-@property(strong, nonatomic) Meeting* meetingModel;
+@property (strong, nonatomic) IBOutlet UITableView *InviteeTableView;
+@property (strong, nonatomic) NSMutableArray* inviteesFBData;
+
 @end

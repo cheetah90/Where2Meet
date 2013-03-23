@@ -19,11 +19,13 @@
 @property (nonatomic) BOOL isNew;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *friendwithApp;
+@property (strong, nonatomic) NSMutableArray* inviteesFBData;
 
 @end
 
 @implementation SCAddMeetingViewController
 @synthesize friendwithApp=_friendwithApp;
+@synthesize inviteesFBData= _inviteesFBData;
 
 - (void)viewDidLoad
 {
@@ -34,6 +36,22 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
     
+    /*
+     Instantiate an inviteesNames array (NSMutableArray), if not empty, empty that.
+    */
+    if (self.inviteesFBData== nil) {
+        self.inviteesFBData = [[NSMutableArray alloc] init];
+    }
+    else
+    {
+        [self.inviteesFBData removeAllObjects];
+    }
+    
+    
+    
+    /*
+    Get back Facebook friends list of user
+    */
     if (FBSession.activeSession.isOpen) {
         [[FBRequest requestForMyFriends] startWithCompletionHandler:
          ^(FBRequestConnection *connection,
@@ -56,6 +74,22 @@
                  
              }
          }];
+        
+        /*
+         //Get an array of participants names by Graph API, this circumvent to retrieve those invitees who are not your friends (but are meeting managers)
+         */
+        
+        for (NSString* currentUserId in self.meetingModel.invitees) {
+            [FBRequestConnection startWithGraphPath:currentUserId parameters:nil HTTPMethod:@"GET" completionHandler:
+             ^(FBRequestConnection *connection,
+               FBGraphObject* inviteeGraphAPIGETResult,
+               NSError *error){
+                 [self.inviteesFBData addObject:inviteeGraphAPIGETResult];
+             }];
+        }
+        
+        
+        
     }
 }
 
@@ -114,7 +148,7 @@
     if ([segue.identifier isEqualToString:@"SegueInviteeViewController"])
     {
         SCInviteeViewController *controller = segue.destinationViewController;
-        controller.meetingModel = self.meetingModel;
+        controller.inviteesFBData = self.inviteesFBData;
     }
     
 }
