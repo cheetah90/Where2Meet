@@ -18,13 +18,14 @@
 
 @implementation LocationAnnotation
 
-- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor
+- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor buttonType:(UIButtonType)buttonType
 {
     if (self = [super init]) {
         self.localTitle = title;
         self.localSubtitle = subtitle;
         self.localCoordinate = coordinate;
         self.pinColor = pinColor;
+        self.buttonType = buttonType;
     }
     return self;
 }

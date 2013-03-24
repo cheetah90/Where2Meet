@@ -13,6 +13,8 @@
 
 @interface SCLocationsViewController ()
 
+@property (nonatomic) BOOL initialPositon;
+
 @end
 
 @implementation SCLocationsViewController
@@ -37,7 +39,13 @@
 {
     [super viewDidAppear:animated];
     
-    [self showMapAtLocation:self.mapView.userLocation.coordinate];
+    // Only zoom the the user's current location when we load the first time.
+    // Don't keep zooming in and out as we go to the location details view.
+    if (!self.initialPositon)
+    {
+        self.initialPositon = YES;
+        [self showMapAtLocation:self.mapView.userLocation.coordinate];
+    }
     
     // Show the location of each person that has been invited.
     for (Invitee *invitee in self.meetingModel.inviteeDetails)
@@ -46,7 +54,7 @@
         {
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(invitee.latitude.doubleValue, invitee.longitude.doubleValue);
         
-            [self showMarkerWithTitle:invitee.facebookUserId withSubtitle:@"subtitle" AtLocation:coord pinColor:MKPinAnnotationColorGreen];
+            [self showMarkerWithTitle:invitee.facebookUserId withSubtitle:@"subtitle" AtLocation:coord pinColor:MKPinAnnotationColorGreen buttonType:UIButtonTypeCustom];
         }
     }
     
@@ -55,7 +63,7 @@
     
     for (eachPlace in self.listofPOIs) {
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(eachPlace.location.latitude.doubleValue, eachPlace.location.longitude.doubleValue);
-        [self showMarkerWithTitle:eachPlace.id withSubtitle:eachPlace.name AtLocation:coord pinColor:MKPinAnnotationColorRed];
+        [self showMarkerWithTitle:eachPlace.id withSubtitle:eachPlace.name AtLocation:coord pinColor:MKPinAnnotationColorRed buttonType:UIButtonTypeDetailDisclosure];
     }
 
 }
@@ -70,9 +78,9 @@
     [self.mapView setRegion:viewRegion animated:YES];
 }
 
-- (void) showMarkerWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle AtLocation:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor
+- (void) showMarkerWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle AtLocation:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor buttonType:(UIButtonType)buttonType
 {
-    LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:title subtitle:subtitle coordinate:coordinate pinColor:pinColor];
+    LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:title subtitle:subtitle coordinate:coordinate pinColor:pinColor buttonType:buttonType];
     
     [self.mapView addAnnotation:annotation];
 }
@@ -94,8 +102,7 @@
         pinView.animatesDrop = YES;
         pinView.canShowCallout = YES;
         
-        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        pinView.rightCalloutAccessoryView = rightButton;
+        pinView.rightCalloutAccessoryView = [UIButton buttonWithType:locationAnnotation.buttonType];
         pinView.annotation = annotation;
     } else {
         pinView.annotation = annotation;
@@ -105,7 +112,7 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    // TODO: Segue
+    [self performSegueWithIdentifier: @"LocationsToLocationDetails" sender:view];
 }
 
 @end
