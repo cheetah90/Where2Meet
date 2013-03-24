@@ -9,12 +9,15 @@
 #import "SCLocationsViewController.h"
 #import "LocationAnnotation.h"
 #import "Invitee.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SCLocationsViewController ()
 
 @end
 
 @implementation SCLocationsViewController
+@synthesize listofPOIs=_listofPOIs;
+
 
 #define METERS_PER_MILE 1609.344
 
@@ -46,6 +49,15 @@
             [self showMarkerWithTitle:invitee.facebookUserId withSubtitle:@"subtitle" AtLocation:coord];
         }
     }
+    
+    // Show the location of POIs near center points
+    NSDictionary<FBGraphPlace>* eachPlace;
+    
+    for (eachPlace in self.listofPOIs) {
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(eachPlace.location.latitude.doubleValue, eachPlace.location.longitude.doubleValue);
+        [self showMarkerWithTitle:eachPlace.id withSubtitle:eachPlace.name AtLocation:coord];
+    }
+
 }
 
 // Moves the map to the given coordinates

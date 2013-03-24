@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeZoneLabel;
 @property (strong, nonatomic) Meeting *meetingModel;
 @property (weak, nonatomic) IBOutlet UITableViewCell *deleteButton;
+@property (strong, nonatomic) NSMutableArray* listofPOIs;
 
 
 - (IBAction)donePressed:(id)sender;

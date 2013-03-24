@@ -10,9 +10,11 @@
 #import <MapKit/MapKit.h>
 #import "Meeting.h"
 
+
 @interface SCLocationsViewController : UIViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) Meeting *meetingModel;
+@property (strong, nonatomic) NSMutableArray* listofPOIs;
 
 @end

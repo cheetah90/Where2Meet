@@ -5,6 +5,9 @@
 //  Created by Brandon Lehner on 3/10/13.
 //  Copyright (c) 2013 University of Minnesota. All rights reserved.
 //
+#define SEARCH_RADIUS_IN_METERS 3000
+#define SEARCH_NUMBER_LIMITS 20   
+
 
 #import "SCAddMeetingViewController.h"
 #import "SCStartAndEndViewController.h"
@@ -12,6 +15,7 @@
 #import "ServiceHub.h"
 #import <CoreLocation/CoreLocation.h>
 #import "SCLocationsViewController.h"
+#import "Invitee.h"
 
 @interface SCAddMeetingViewController ()
 
@@ -27,6 +31,7 @@
 @implementation SCAddMeetingViewController
 @synthesize friendwithApp=_friendwithApp;
 @synthesize inviteesFBData= _inviteesFBData;
+@synthesize listofPOIs= _listofPOIs;
 
 - (void)viewDidLoad
 {
@@ -46,6 +51,17 @@
     else
     {
         [self.inviteesFBData removeAllObjects];
+    }
+    
+    /*
+     Instantiate an inviteesNames array (NSMutableArray), if not empty, empty that.
+     */
+    if (self.listofPOIs== nil) {
+        self.listofPOIs = [[NSMutableArray alloc] init];
+    }
+    else
+    {
+        [self.listofPOIs removeAllObjects];
     }
     
     
@@ -77,19 +93,41 @@
          }];
         
         /*
-         //Get an array of participants names by Graph API, this circumvent to retrieve those invitees who are not your friends (but are meeting managers)
+         Get an array of participants names by Graph API, this circumvent to retrieve those invitees who are not your Facebook friends
          */
-        
         for (NSString* currentUserId in self.meetingModel.invitees) {
             [FBRequestConnection startWithGraphPath:currentUserId parameters:nil HTTPMethod:@"GET" completionHandler:
              ^(FBRequestConnection *connection,
                FBGraphObject* inviteeGraphAPIGETResult,
                NSError *error){
-                 [self.inviteesFBData addObject:inviteeGraphAPIGETResult];
+                 if (!error) {
+                     [self.inviteesFBData addObject:inviteeGraphAPIGETResult];
+                 }
              }];
         }
         
         
+        /*
+         Calculate the median center of all accepted invitees and query for the POIs around that median center within certain buffer. 
+         */
+        
+        CLLocationCoordinate2D dummyCoordinate = CLLocationCoordinate2DMake(45.078,-93.0729);        
+        if (FBSession.activeSession.isOpen) {
+            [FBRequestConnection startForPlacesSearchAtCoordinate: dummyCoordinate radiusInMeters:SEARCH_RADIUS_IN_METERS resultsLimit:SEARCH_NUMBER_LIMITS searchText: @"restaurant" completionHandler:
+             ^(FBRequestConnection* connection, NSDictionary* result, NSError *error)
+             {
+                 if (!error) {
+                     NSDictionary<FBGraphPlace>* POIData;
+                     
+                     for (POIData in [result objectForKey:@"data"]) {
+                         [self.listofPOIs addObject:POIData];
+                     }
+    
+                 }
+             }];
+        }
+    
+    
         
     }
 }
@@ -156,6 +194,7 @@
     {
         SCLocationsViewController *controller = segue.destinationViewController;
         controller.meetingModel = self.meetingModel;
+        controller.listofPOIs = self.listofPOIs;
     }    
 }
 
@@ -377,5 +416,25 @@
      }];
 }
 
+- (CLLocationCoordinate2D) calculateMedianCoordinateforAcceptedInvitees
+{
+    double medianLatitude=0;
+    double medianLongitude=0;
+    
+    for (Invitee* tpInvitee in self.meetingModel.inviteeDetails) {
+        medianLatitude+= [tpInvitee.latitude doubleValue];
+        medianLongitude+= [tpInvitee.longitude doubleValue];
+    }
+    
+    if ([self.meetingModel.inviteeDetails count]!=0) {
+        medianLatitude = medianLatitude/[self.meetingModel.inviteeDetails count];
+        medianLongitude = medianLongitude/[self.meetingModel.inviteeDetails count];
+    }
+    
+    CLLocationCoordinate2D location = CLLocationCoordinate2DMake(medianLatitude, medianLongitude);
+    
+    return location;
+    
+}
 
 @end
