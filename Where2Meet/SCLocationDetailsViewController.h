@@ -10,4 +10,7 @@
 
 @interface SCLocationDetailsViewController : UIViewController
 
+@property (nonatomic) int meetingId;
+@property (strong, nonatomic) NSString *facebookLocationId;
+
 @end
