@@ -12,5 +12,9 @@
 
 @property (nonatomic) int meetingId;
 @property (strong, nonatomic) NSString *facebookLocationId;
+@property (weak, nonatomic) IBOutlet UILabel *yesVoteCount;
+@property (weak, nonatomic) IBOutlet UILabel *noVoteCount;
+- (IBAction)voteNoButtonPressed:(id)sender;
+- (IBAction)voteYesButtonPressed:(id)sender;
 
 @end

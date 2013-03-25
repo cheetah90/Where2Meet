@@ -10,6 +10,7 @@
 #import "LocationAnnotation.h"
 #import "Invitee.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "SCLocationDetailsViewController.h"
 
 @interface SCLocationsViewController ()
 
@@ -53,8 +54,10 @@
         if (invitee.latitude && invitee.longitude)
         {
             CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(invitee.latitude.doubleValue, invitee.longitude.doubleValue);
-        
-            [self showMarkerWithTitle:invitee.facebookUserId withSubtitle:@"subtitle" AtLocation:coord pinColor:MKPinAnnotationColorGreen buttonType:UIButtonTypeCustom];
+            
+            LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:invitee.facebookUserId subtitle:@"" coordinate:coord pinColor:MKPinAnnotationColorGreen buttonType:UIButtonTypeCustom];
+            
+            [self.mapView addAnnotation:annotation];
         }
     }
     
@@ -63,9 +66,12 @@
     
     for (eachPlace in self.listofPOIs) {
         CLLocationCoordinate2D coord = CLLocationCoordinate2DMake(eachPlace.location.latitude.doubleValue, eachPlace.location.longitude.doubleValue);
-        [self showMarkerWithTitle:eachPlace.id withSubtitle:eachPlace.name AtLocation:coord pinColor:MKPinAnnotationColorRed buttonType:UIButtonTypeDetailDisclosure];
+        
+        LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:eachPlace.name subtitle:@"" coordinate:coord pinColor:MKPinAnnotationColorRed buttonType:UIButtonTypeDetailDisclosure];
+        
+        annotation.facebookId = eachPlace.id;
+        [self.mapView addAnnotation:annotation];
     }
-
 }
 
 // Moves the map to the given coordinates
@@ -76,13 +82,6 @@
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coordinates, scale*METERS_PER_MILE, scale*METERS_PER_MILE);
     
     [self.mapView setRegion:viewRegion animated:YES];
-}
-
-- (void) showMarkerWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle AtLocation:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor buttonType:(UIButtonType)buttonType
-{
-    LocationAnnotation *annotation = [[LocationAnnotation alloc] initWithTitle:title subtitle:subtitle coordinate:coordinate pinColor:pinColor buttonType:buttonType];
-    
-    [self.mapView addAnnotation:annotation];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -113,6 +112,18 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [self performSegueWithIdentifier: @"LocationsToLocationDetails" sender:view];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"LocationsToLocationDetails"])
+    {
+        LocationAnnotation *annotation = ((MKAnnotationView *)sender).annotation;
+        SCLocationDetailsViewController *controller = (SCLocationDetailsViewController *) segue.destinationViewController;
+        
+        controller.meetingId = self.meetingModel.meetingId;
+        controller.facebookLocationId = annotation.facebookId;
+    }
 }
 
 @end

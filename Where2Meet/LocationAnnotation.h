@@ -15,5 +15,6 @@
 
 @property (nonatomic) MKPinAnnotationColor pinColor;
 @property (nonatomic) UIButtonType buttonType;
+@property (strong, nonatomic) NSString *facebookId;
 
 @end

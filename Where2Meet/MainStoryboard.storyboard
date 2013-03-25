@@ -631,9 +631,86 @@
                     <view key="view" contentMode="scaleToFill" id="I7R-hl-WOD">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyR-x6-xnH">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Vote Yes">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="voteYesButtonPressed:" destination="YPU-i7-dz5" eventType="touchUpInside" id="TPb-h0-hJP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0D-h2-zVO">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Vote No">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="voteNoButtonPressed:" destination="YPU-i7-dz5" eventType="touchUpInside" id="d0x-Mf-Eso"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number Of Yes Votes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mc2-BR-w4Y">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number Of No Votes:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHz-C7-rHd">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOU-21-of5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="cgC-rx-XsC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgv-P3-9Ui">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Comments:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eiz-hZ-pMk">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CHz-C7-rHd" firstAttribute="top" secondItem="I7R-hl-WOD" secondAttribute="top" constant="61" id="1tj-UY-L8b"/>
+                            <constraint firstItem="xgv-P3-9Ui" firstAttribute="baseline" secondItem="CHz-C7-rHd" secondAttribute="baseline" type="default" id="4XD-sQ-BgP"/>
+                            <constraint firstItem="tOU-21-of5" firstAttribute="trailing" secondItem="xgv-P3-9Ui" secondAttribute="trailing" type="default" id="6I9-A4-E4c"/>
+                            <constraint firstItem="Mc2-BR-w4Y" firstAttribute="top" secondItem="I7R-hl-WOD" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7yR-CG-5HT"/>
+                            <constraint firstItem="xgv-P3-9Ui" firstAttribute="leading" secondItem="CHz-C7-rHd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BpN-yM-DTC"/>
+                            <constraint firstItem="dyR-x6-xnH" firstAttribute="leading" secondItem="I7R-hl-WOD" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="EJ8-di-nIa"/>
+                            <constraint firstItem="xgv-P3-9Ui" firstAttribute="leading" secondItem="tOU-21-of5" secondAttribute="leading" type="default" id="Hyy-nQ-g52"/>
+                            <constraint firstAttribute="bottom" secondItem="u0D-h2-zVO" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Uh3-Q4-E6a"/>
+                            <constraint firstAttribute="bottom" secondItem="dyR-x6-xnH" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="X3n-i6-TND"/>
+                            <constraint firstItem="Eiz-hZ-pMk" firstAttribute="centerX" secondItem="I7R-hl-WOD" secondAttribute="centerX" type="default" id="c12-ZR-iow"/>
+                            <constraint firstAttribute="trailing" secondItem="u0D-h2-zVO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="e1Z-vC-gHm"/>
+                            <constraint firstItem="tOU-21-of5" firstAttribute="top" secondItem="I7R-hl-WOD" secondAttribute="top" constant="20" symbolic="YES" type="default" id="g6o-ub-MFG"/>
+                            <constraint firstItem="Mc2-BR-w4Y" firstAttribute="leading" secondItem="I7R-hl-WOD" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lgi-yd-hBo"/>
+                            <constraint firstItem="tOU-21-of5" firstAttribute="leading" secondItem="Mc2-BR-w4Y" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="xmS-Hf-sJe"/>
+                            <constraint firstItem="Eiz-hZ-pMk" firstAttribute="top" secondItem="CHz-C7-rHd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xtf-sV-LdU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Location Details" id="8Xv-ma-ouX"/>
+                    <connections>
+                        <outlet property="noVoteCount" destination="xgv-P3-9Ui" id="63Q-ok-Ufp"/>
+                        <outlet property="yesVoteCount" destination="tOU-21-of5" id="qDS-6U-RA2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6H-Lt-6f5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -923,6 +1000,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="SCLocationDetailsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLocationDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="voteNoButtonPressed:"/>
+                <relationship kind="action" name="voteYesButtonPressed:"/>
+                <relationship kind="outlet" name="noVoteCount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yesVoteCount" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="SCLocationsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SCLocationsViewController.h"/>

@@ -20,10 +20,7 @@
 @implementation SCMyMeetingsViewController
 
 - (void)viewWillAppear:(BOOL)animated
-{
-    //
-    [[ServiceHub current] voteOnLocation:9 facebookLocationId:@"234523" vote:1];
-    
+{    
     [super viewWillAppear:animated];
     [self refreshMeetings];
 }

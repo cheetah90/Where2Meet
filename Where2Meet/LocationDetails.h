@@ -10,7 +10,7 @@
 
 @interface LocationDetails : NSObject
 
-@property (nonatomic) int *vote;
+@property (nonatomic) int vote;
 @property (strong, nonatomic) NSString *comment;
 
 @end
