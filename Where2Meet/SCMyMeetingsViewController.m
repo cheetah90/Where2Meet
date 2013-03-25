@@ -21,6 +21,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    //
+    [[ServiceHub current] voteForLocation:9 facebookLocationId:@"234523" vote:1];
+    
     [super viewWillAppear:animated];
     [self refreshMeetings];
 }

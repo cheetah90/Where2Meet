@@ -41,4 +41,12 @@
                       accepted:(BOOL)accepted
                    withGeoCode:(NSString *)geoCode;
 
+- (BOOL)voteForLocation:(int)meetingId
+     facebookLocationId:(NSString *)facebookLocationId
+                   vote:(int)vote;
+
+- (BOOL)commentOnLocation:(int)meetingId
+       facebookLocationId:(NSString *)facebookLocationId
+                     comment:(NSString *)comment;
+
 @end
