@@ -191,7 +191,9 @@ static ServiceHub *serviceHub;
        facebookLocationId:(NSString *)facebookLocationId
                   comment:(NSString *)comment
 {
-    NSString* content = [NSString stringWithFormat:@"user_id=%@&facebook_location_id=%@&meeting_id=%d&comment=%@", self.userId, facebookLocationId, meetingId, comment];
+    NSString* escapedComment = [comment stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString* content = [NSString stringWithFormat:@"user_id=%@&facebook_location_id=%@&meeting_id=%d&comment=%@", self.userId, facebookLocationId, meetingId, escapedComment];
     NSURL* url = [NSURL URLWithString:@"http://wheretomeet.azurewebsites.net/facebookapi/comment_on_location"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];

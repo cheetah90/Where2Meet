@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCLoationNameCell : UITableViewCell
+@interface SCLocationNameCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 

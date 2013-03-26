@@ -123,6 +123,7 @@
         
         controller.meetingId = self.meetingModel.meetingId;
         controller.facebookLocationId = annotation.facebookId;
+        controller.locationName = annotation.title;
     }
 }
 

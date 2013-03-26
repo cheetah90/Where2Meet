@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 University of Minnesota. All rights reserved.
 //
 
-#import "SCLoationNameCell.h"
+#import "SCLocationNameCell.h"
 
-@implementation SCLoationNameCell
+@implementation SCLocationNameCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

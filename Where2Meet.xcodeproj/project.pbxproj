@@ -31,7 +31,7 @@
 		CA4A889116F4D0100078DC44 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4A889016F4D0100078DC44 /* FacebookSDK.framework */; };
 		CA6185B416FE794E008ED9F8 /* SCLocationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6185B316FE794E008ED9F8 /* SCLocationDetailsViewController.m */; };
 		CA80AD2316FE4E9E0049D918 /* Invitee.m in Sources */ = {isa = PBXBuildFile; fileRef = CA80AD2216FE4E9E0049D918 /* Invitee.m */; };
-		CA8256A217011D5B0064119F /* SCLoationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8256A117011D5B0064119F /* SCLoationNameCell.m */; };
+		CA8256A217011D5B0064119F /* SCLocationNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8256A117011D5B0064119F /* SCLocationNameCell.m */; };
 		CA8256A517011D8D0064119F /* SCLocationVoteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8256A417011D8D0064119F /* SCLocationVoteCell.m */; };
 		CA8256A817011DA10064119F /* SCLocationCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA8256A717011DA10064119F /* SCLocationCommentCell.m */; };
 		CA84F2A116FFEF7300FB6257 /* LocationDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = CA84F2A016FFEF7300FB6257 /* LocationDetails.m */; };
@@ -111,8 +111,8 @@
 		CA6185B316FE794E008ED9F8 /* SCLocationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocationDetailsViewController.m; sourceTree = "<group>"; };
 		CA80AD2116FE4E9E0049D918 /* Invitee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invitee.h; sourceTree = "<group>"; };
 		CA80AD2216FE4E9E0049D918 /* Invitee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invitee.m; sourceTree = "<group>"; };
-		CA8256A017011D5B0064119F /* SCLoationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoationNameCell.h; sourceTree = "<group>"; };
-		CA8256A117011D5B0064119F /* SCLoationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoationNameCell.m; sourceTree = "<group>"; };
+		CA8256A017011D5B0064119F /* SCLocationNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocationNameCell.h; sourceTree = "<group>"; };
+		CA8256A117011D5B0064119F /* SCLocationNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocationNameCell.m; sourceTree = "<group>"; };
 		CA8256A317011D8D0064119F /* SCLocationVoteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocationVoteCell.h; sourceTree = "<group>"; };
 		CA8256A417011D8D0064119F /* SCLocationVoteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLocationVoteCell.m; sourceTree = "<group>"; };
 		CA8256A617011DA10064119F /* SCLocationCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLocationCommentCell.h; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				CA8E19EA16F7E9EA00ACE4D8 /* MainStoryboard.storyboard */,
-				CA8256A017011D5B0064119F /* SCLoationNameCell.h */,
-				CA8256A117011D5B0064119F /* SCLoationNameCell.m */,
+				CA8256A017011D5B0064119F /* SCLocationNameCell.h */,
+				CA8256A117011D5B0064119F /* SCLocationNameCell.m */,
 				CA8256A617011DA10064119F /* SCLocationCommentCell.h */,
 				CA8256A717011DA10064119F /* SCLocationCommentCell.m */,
 				CA8256A317011D8D0064119F /* SCLocationVoteCell.h */,
@@ -456,7 +456,7 @@
 				CA80AD2316FE4E9E0049D918 /* Invitee.m in Sources */,
 				CA6185B416FE794E008ED9F8 /* SCLocationDetailsViewController.m in Sources */,
 				CA84F2A116FFEF7300FB6257 /* LocationDetails.m in Sources */,
-				CA8256A217011D5B0064119F /* SCLoationNameCell.m in Sources */,
+				CA8256A217011D5B0064119F /* SCLocationNameCell.m in Sources */,
 				CA8256A517011D8D0064119F /* SCLocationVoteCell.m in Sources */,
 				CA8256A817011DA10064119F /* SCLocationCommentCell.m in Sources */,
 			);
