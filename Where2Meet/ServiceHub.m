@@ -208,19 +208,20 @@ static ServiceHub *serviceHub;
 - (NSArray *)retrieveLocationDetails:(int)meetingId
              faceboolLocationId:(NSString *)facebookLocationId
 {
-    NSString* content = [NSString stringWithFormat:@"facebook_location_id=%@&meeting_id=%d",facebookLocationId, meetingId];
-    NSURL* url = [NSURL URLWithString:@"http://wheretomeet.azurewebsites.net/facebookapi/retrieve_location_details"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[content dataUsingEncoding:NSASCIIStringEncoding]];
+    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/retrieve_location_details?facebook_location_id=%@&meeting_id=%d",facebookLocationId, meetingId];
     
     NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     NSDictionary *jsonParsed = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers error:&error];
     
-    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[LocationDetails class]];
+    DCArrayMapping *mapper = [DCArrayMapping mapperForClassElements:[NSString class] forAttribute:@"comments" onClass:[LocationDetails class]];
+    
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    [config addArrayMapper:mapper];
+    
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[LocationDetails class]
+                                                             andConfiguration:config];
     return [parser parseArray:[jsonParsed objectForKey:@"location_details"]];
 }
 

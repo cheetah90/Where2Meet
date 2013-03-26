@@ -11,6 +11,6 @@
 @interface LocationDetails : NSObject
 
 @property (nonatomic) int vote;
-@property (strong, nonatomic) NSString *comment;
+@property (strong, nonatomic) NSArray *comments;
 
 @end
