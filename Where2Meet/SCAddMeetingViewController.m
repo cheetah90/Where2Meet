@@ -25,6 +25,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSArray *friendwithApp;
 @property (strong, nonatomic) NSMutableArray* inviteesFBData;
+@property (strong, nonatomic) NSMutableArray* inviteesAwareness;
 
 @end
 
@@ -56,12 +57,23 @@
     /*
      Instantiate an inviteesNames array (NSMutableArray), if not empty, empty that.
      */
-    if (self.listofPOIs== nil) {
-        self.listofPOIs = [[NSMutableArray alloc] init];
+    if (self.inviteesFBData== nil) {
+        self.inviteesFBData = [[NSMutableArray alloc] init];
     }
     else
     {
-        [self.listofPOIs removeAllObjects];
+        [self.inviteesFBData removeAllObjects];
+    }
+    
+    /*
+     Instantiate an inviteesAwareness array (NSMutableArray), if not empty, empty that.
+     */
+    if (self.inviteesAwareness== nil) {
+        self.inviteesAwareness = [[NSMutableArray alloc] init];
+    }
+    else
+    {
+        [self.inviteesAwareness removeAllObjects];
     }
     
     
@@ -111,9 +123,9 @@
          Calculate the median center of all accepted invitees and query for the POIs around that median center within certain buffer. 
          */
         
-        CLLocationCoordinate2D dummyCoordinate = CLLocationCoordinate2DMake(45.078,-93.0729);        
+//        CLLocationCoordinate2D dummyCoordinate = CLLocationCoordinate2DMake(45.078,-93.0729);
         if (FBSession.activeSession.isOpen) {
-            [FBRequestConnection startForPlacesSearchAtCoordinate: dummyCoordinate radiusInMeters:SEARCH_RADIUS_IN_METERS resultsLimit:SEARCH_NUMBER_LIMITS searchText: @"restaurant" completionHandler:
+            [FBRequestConnection startForPlacesSearchAtCoordinate: [self calculateMedianCoordinateforAcceptedInvitees] radiusInMeters:SEARCH_RADIUS_IN_METERS resultsLimit:SEARCH_NUMBER_LIMITS searchText: @"restaurant" completionHandler:
              ^(FBRequestConnection* connection, NSDictionary* result, NSError *error)
              {
                  if (!error) {
@@ -159,6 +171,9 @@
     self.endDateTimeLabel.text = [formatter stringFromDate:self.meetingModel.endDateTime];
     self.timeZoneLabel.text = @"Chicago"; // TODO: Add in timezone properly
     self.titleLabel.text = self.meetingModel.title;
+    for (Invitee* tpinvitee in self.meetingModel.inviteeDetails) {
+        [self.inviteesAwareness addObject:tpinvitee.willAttend];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -188,6 +203,7 @@
     {
         SCInviteeViewController *controller = segue.destinationViewController;
         controller.inviteesFBData = self.inviteesFBData;
+        controller.inviteesAwareness = self.inviteesAwareness;
     }
     
     else if ([segue.identifier isEqualToString:@"AddMeetingToLocations"])

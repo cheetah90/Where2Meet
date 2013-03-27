@@ -13,5 +13,6 @@
 @interface SCInviteeViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UITableView *InviteeTableView;
 @property (strong, nonatomic) NSMutableArray* inviteesFBData;
+@property (strong, nonatomic) NSMutableArray* inviteesAwareness;
 
 @end

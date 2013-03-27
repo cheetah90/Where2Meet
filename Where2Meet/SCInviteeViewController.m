@@ -23,6 +23,7 @@
 @synthesize friendPickerController = _friendPickerController;
 @synthesize inviteesFBData= _inviteesFBData;
 @synthesize currentUserProfile= _currentUserProfile;
+@synthesize inviteesAwareness= _inviteesAwareness;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -69,7 +70,18 @@
     NSString* currentUserName= [[self.inviteesFBData objectAtIndex:indexPath.row] objectForKey:@"name"];
 
     cell.textLabel.text = currentUserName;
-    cell.detailTextLabel.text = @"Add awareness";
+    
+    //Populate the awareness
+    if ([[self.inviteesAwareness objectAtIndex:indexPath.row] integerValue] == 0) {
+        cell.detailTextLabel.text = @"Declined";
+    }
+    
+    else if ([[self.inviteesAwareness objectAtIndex:indexPath.row] integerValue] == 1)
+    {
+        cell.detailTextLabel.text = @"Accepted";
+    }
+
+    
     return cell;
 }
 
