@@ -31,8 +31,18 @@
 
 @implementation SCAddMeetingViewController
 @synthesize friendwithApp=_friendwithApp;
-@synthesize inviteesFBData= _inviteesFBData;
-@synthesize listofPOIs= _listofPOIs;
+
+- (NSMutableArray *)listofPOIs
+{
+    if (!_listofPOIs) _listofPOIs = [[NSMutableArray alloc] init];
+    return _listofPOIs;
+}
+
+- (NSMutableArray *)inviteesFBData
+{
+    if (!_inviteesFBData) _inviteesFBData = [[NSMutableArray alloc] init];
+    return _inviteesFBData;
+}
 
 - (void)viewDidLoad
 {
@@ -138,9 +148,6 @@
                  }
              }];
         }
-    
-    
-        
     }
 }
 

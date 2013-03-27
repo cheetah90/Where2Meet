@@ -11,6 +11,10 @@
 
 @interface LocationAnnotation : NSObject <MKAnnotation>
 
-- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate;
+- (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D)coordinate pinColor:(MKPinAnnotationColor)pinColor buttonType:(UIButtonType)buttonType;
+
+@property (nonatomic) MKPinAnnotationColor pinColor;
+@property (nonatomic) UIButtonType buttonType;
+@property (strong, nonatomic) NSString *facebookId;
 
 @end

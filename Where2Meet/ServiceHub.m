@@ -12,6 +12,7 @@
 #import "DCArrayMapping.h"
 #import "Invitee.h"
 #import "DCParserConfiguration.h"
+#import "LocationDetails.h"
 
 @implementation ServiceHub
 
@@ -68,16 +69,11 @@ static ServiceHub *serviceHub;
     NSError *error;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     
-    //NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/friends?user_ids=%@", ids];
-    
-    
-    //NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
     NSDictionary *jsonParsed = [NSJSONSerialization JSONObjectWithData:data
                                                                options:NSJSONReadingMutableContainers error:&error];
     
     return [jsonParsed objectForKey:@"users"];
 }
-
 
 - (NSMutableString *)buildInviteeUserIds:(NSArray *)friendFacebookUserIds
 {
@@ -107,7 +103,6 @@ static ServiceHub *serviceHub;
     double endTime = [endDateTime timeIntervalSince1970];
     NSMutableString *inviteeUserIds = [self buildInviteeUserIds:friendFacebookUserIds];
     
-    // TODO: actually pass along a comma delimited string for the geocode once we get that from location services.
     NSString *registerUrl = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/create_meeting?user_id=%@&title=%@&start_date_time=%f&end_date_time=%f&geocode=%@&invitee_user_ids=%@", [self userId], escapedTitle, startTime, endTime, geoCode, inviteeUserIds];
     
     NSError *error;
@@ -166,7 +161,6 @@ static ServiceHub *serviceHub;
 {
     NSString *acceptedValue = accepted ? @"True" : @"False";
     
-    // TODO: Get the real geo code for this user...
     NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/respond_to_meeting_invite?user_id=%@&meeting_id=%d&geo_code=%@&accepted=%@", [self userId], meetingId, geoCode, acceptedValue];
     
     NSError *error;
@@ -175,6 +169,60 @@ static ServiceHub *serviceHub;
                                     options:NSJSONReadingMutableContainers error:&error];
     
     return error ? NO : YES;
+}
+
+- (BOOL)voteOnLocation:(int)meetingId
+     facebookLocationId:(NSString *)facebookLocationId
+                   vote:(int)vote
+{
+    NSString* content = [NSString stringWithFormat:@"user_id=%@&facebook_location_id=%@&meeting_id=%d&vote=%d", self.userId, facebookLocationId, meetingId, vote];
+    NSURL* url = [NSURL URLWithString:@"http://wheretomeet.azurewebsites.net/facebookapi/vote_on_location"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[content dataUsingEncoding:NSASCIIStringEncoding]];
+    
+    NSError *error;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    return error ? NO : YES;
+}
+
+- (BOOL)commentOnLocation:(int)meetingId
+       facebookLocationId:(NSString *)facebookLocationId
+                  comment:(NSString *)comment
+{
+    NSString* escapedComment = [comment stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString* content = [NSString stringWithFormat:@"user_id=%@&facebook_location_id=%@&meeting_id=%d&comment=%@", self.userId, facebookLocationId, meetingId, escapedComment];
+    NSURL* url = [NSURL URLWithString:@"http://wheretomeet.azurewebsites.net/facebookapi/comment_on_location"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[content dataUsingEncoding:NSASCIIStringEncoding]];
+    
+    NSError *error;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    
+    return error ? NO : YES;
+}
+
+- (NSArray *)retrieveLocationDetails:(int)meetingId
+             faceboolLocationId:(NSString *)facebookLocationId
+{
+    NSString *url = [NSString stringWithFormat:@"http://wheretomeet.azurewebsites.net/facebookapi/retrieve_location_details?facebook_location_id=%@&meeting_id=%d",facebookLocationId, meetingId];
+    
+    NSError *error;
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    NSDictionary *jsonParsed = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingMutableContainers error:&error];
+    
+    DCArrayMapping *mapper = [DCArrayMapping mapperForClassElements:[NSString class] forAttribute:@"comments" onClass:[LocationDetails class]];
+    
+    DCParserConfiguration *config = [DCParserConfiguration configuration];
+    [config addArrayMapper:mapper];
+    
+    DCKeyValueObjectMapping *parser = [DCKeyValueObjectMapping mapperForClass:[LocationDetails class]
+                                                             andConfiguration:config];
+    return [parser parseArray:[jsonParsed objectForKey:@"location_details"]];
 }
 
 - (void)setUserId:(NSString *)userId
