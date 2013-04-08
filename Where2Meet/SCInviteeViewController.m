@@ -136,9 +136,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-    self.currentUserProfile = [[self inviteesFBData] objectAtIndex:indexPath.row];
-    
-    [self performSegueWithIdentifier:@"InviteesList2Profile" sender:self.currentUserProfile];
     
 }
 
@@ -156,7 +153,12 @@
     _friendPickerController.delegate = nil;
 }
 
-
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    self.currentUserProfile = [[self inviteesFBData] objectAtIndex:indexPath.row];
+    
+    [self performSegueWithIdentifier:@"InviteesList2Profile" sender:self.currentUserProfile];
+}
 
 
 

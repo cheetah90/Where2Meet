@@ -5,7 +5,7 @@
 //  Created by Brandon Lehner on 3/10/13.
 //  Copyright (c) 2013 University of Minnesota. All rights reserved.
 //
-#define SEARCH_RADIUS_IN_METERS 3000
+#define SEARCH_RADIUS_IN_METERS 5000
 #define SEARCH_NUMBER_LIMITS 20   
 
 
